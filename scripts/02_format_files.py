@@ -1,85 +1,91 @@
 import trafilatura
 import json
 import os
-import re
 
-def process_txt_to_openai_jsonl(input_folder, output_file="wm_refined_training.jsonl"):
+def process_txt_to_openai_jsonl(input_folder, output_file="data_clean/wm_refined_training.jsonl"):
     """
-    Takes a directory of .txt files, cleans them into Markdown using Trafilatura,
-    and formats them for OpenAI-style training.
+    Refines raw HTML files into OpenAI-formatted JSONL.
+    Optimized for files with 'Source URL' and 'Page Title' headers.
     """
-    
-    # --- CONFIGURATION ---
     SYSTEM_PROMPT = (
         "You are an expert academic advisor for the College of William & Mary. "
-        "Use the provided university documentation to answer questions accurately "
-        "using Markdown formatting for clarity."
+        "Use the provided university documentation to answer questions accurately."
     )
     
-    print(f"--- W&M Data Refinery Engaged ---")
-    print(f"Reading from: {input_folder}")
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+    abs_input_path = os.path.abspath(input_folder)
     
-    # Get list of all .txt files in the directory
-    txt_files = [f for f in os.listdir(input_folder) if f.endswith('.txt')]
+    print(f"--- W&M Data Refinery: HTML Mode Engaged ---")
+    txt_files = [f for f in os.listdir(abs_input_path) if f.endswith('.txt')]
     
-    if not txt_files:
-        print("No .txt files found in the directory!")
-        return
-
     processed_count = 0
     with open(output_file, "w", encoding="utf-8") as out_f:
         for filename in txt_files:
-            file_path = os.path.join(input_folder, filename)
+            file_path = os.path.join(abs_input_path, filename)
             
             try:
-                # 1. READ THE FILE
                 with open(file_path, "r", encoding="utf-8") as in_f:
-                    raw_content = in_f.read()
+                    lines = in_f.readlines()
 
-                # 2. EXTRACT CLEAN MARKDOWN
-                # Even if it's already text, Trafilatura's extract handles 
-                # converting HTML remnants into clean Markdown.
-                clean_markdown = trafilatura.extract(
-                    raw_content,
-                    output_format='markdown',
-                    include_tables=True,
-                    include_formatting=True
-                )
+                # --- 1. EXTRACT TITLE FROM HEADER ---
+                # Your scraper now explicitly saves "Page Title: X" on the second line
+                display_name = "William & Mary Information"
+                html_start_index = 0
+                
+                for i, line in enumerate(lines):
+                    if line.startswith("Page Title:"):
+                        display_name = line.replace("Page Title:", "").strip()
+                    if "=====" in line:
+                        html_start_index = i + 1
+                        break
 
-                # Skip files that are empty or just "noise" (less than 150 chars)
-                if not clean_markdown or len(clean_markdown) < 150:
+                # --- 2. SEPARATE HTML FROM METADATA ---
+                # We only want to feed the raw HTML to Trafilatura
+                raw_html = "".join(lines[html_start_index:]).strip()
+
+                if not raw_html:
                     continue
 
-                # 3. GENERATE A CLEAN TITLE FOR THE 'USER' PROMPT
-                # We'll use the filename (removing .txt and replacing hyphens/underscores)
-                display_name = filename.replace('.txt', '').replace('-', ' ').replace('_', ' ').title()
+                # --- 3. PRECISION EXTRACTION ---
+                # Because we are providing raw HTML, Trafilatura will use its 
+                # structural algorithms to strip navbars and footers automatically.
+                clean_markdown = trafilatura.extract(
+                    raw_html,
+                    output_format='markdown',
+                    include_tables=True,
+                    include_formatting=True,
+                    favor_precision=True # Prioritizes body text over menus
+                )
 
-                # 4. CONSTRUCT OPENAI MESSAGES FORMAT
+                # --- 4. DECISION & CLEANUP ---
+                # If Trafilatura successfully finds the body, use it.
+                if clean_markdown and len(clean_markdown) > 150:
+                    content_to_use = clean_markdown.strip()
+                else:
+                    # Fallback: If it's a short page, Trafilatura might be too strict.
+                    # We skip these to avoid training the model on "Search" menus.
+                    print(f"  [!] Skipping {filename}: No clear body content found.")
+                    continue
+
                 openai_row = {
                     "messages": [
                         {"role": "system", "content": SYSTEM_PROMPT},
-                        {"role": "user", "content": f"I need details regarding: {display_name}. What does the documentation say?"},
-                        {"role": "assistant", "content": clean_markdown.strip()}
+                        {"role": "user", "content": f"I need details regarding: {display_name}."},
+                        {"role": "assistant", "content": content_to_use}
                     ]
                 }
 
-                # 5. SAVE & FLUSH (HPC Monitor Readiness)
                 out_f.write(json.dumps(openai_row) + "\n")
-                out_f.flush() # Ensures you can monitor progress on Jumbotron
-                
+                out_f.flush()
                 processed_count += 1
-                print(f"[{processed_count}] Processed: {filename}")
+                print(f"  [+] Refined: {display_name}")
 
             except Exception as e:
-                print(f"Error refining {filename}: {e}")
+                print(f"  [X] Error refining {filename}: {e}")
 
-    print(f"\n--- Refinery Complete! ---")
-    print(f"Total entries created: {processed_count}")
-    print(f"File ready for Axolotl: {os.path.abspath(output_file)}")
+    print(f"\nRefinery Complete! Created {processed_count} high-quality entries.")
 
 if __name__ == "__main__":
-    # Change 'my_scraped_pages' to the folder name where your BeautifulSoup script 
-    # saves its .txt files.
-    INPUT_DIR = "scraped_data_folder" 
-    
+    # Ensure this points to your raw data directory
+    INPUT_DIR = "data_raw/test_data" 
     process_txt_to_openai_jsonl(INPUT_DIR)
