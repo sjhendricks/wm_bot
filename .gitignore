@@ -206,3 +206,8 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 .DS_Store
+
+
+wm_text_data/
+scraping_293272.err
+scraping_293272.out
