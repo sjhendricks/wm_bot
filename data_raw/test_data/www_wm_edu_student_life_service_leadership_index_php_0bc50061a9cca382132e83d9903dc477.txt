@@ -1,0 +1,857 @@
+Source URL: https://www.wm.edu/student-life/service-leadership/index.php
+Page Title: Service & Leadership
+==================================================
+
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="William &amp; Mary" property="og:site_name"/><meta content="on" name="twitter:dnt"/>
+<link href="//cascade-prod.static.wm.edu" rel="dns-prefetch"/> <link href="//creative.wm.edu" rel="dns-prefetch"/> <link href="//kit.fontawesome.com" rel="dns-prefetch"/> <link href="//static.wm.edu" rel="dns-prefetch"/> <link href="//www.googletagmanager.com" rel="dns-prefetch"/> <link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js" type="text/javascript"></script>
+<script src="https://cascade-prod.static.wm.edu/_shared/static/js/vendor/jquery.min.js"></script>
+<script type="application/ld+json">// <![CDATA[
+{ "@context" : "https://schema.org",
+  "@type" : "Organization",
+  "name" : "William & Mary",
+  "url" : "https://www.wm.edu",
+  "logo": "https://www.wm.edu/img/wm_vertical_single_line_full_color.png",
+  "sameAs" : [ "https://www.facebook.com/williamandmary",
+    "https://www.twitter.com/williamandmary",
+    "https://plus.google.com/+williamandmary",
+    "https://www.instagram.com/william_and_mary" ] 
+}
+// ]]></script>
+<link href="https://static.wm.edu/mweb/prod/main.min.css?v=111725" media="all" rel="stylesheet"/> <link href="https://use.typekit.net/hsm3jlb.css" rel="stylesheet"/>
+<script crossorigin="anonymous" defer="defer" src="https://kit.fontawesome.com/270bb58298.js"></script>
+<link href="/css/custom.css?v=1" media="all" rel="stylesheet"/>
+<link href="https://www.wm.edu/student-life/service-leadership/" rel="canonical"/>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-ND77N3');</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2310WV201G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2310WV201G');
+</script>
+<script>let cascadeSite="www.wm.edu"</script>
+<title>Service &amp; Leadership | Student Life | William &amp; Mary</title>
+<meta content="At William &amp; Mary, service and leadership are central to our mission of cultivating responsible, engaged citizens." name="description">
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Service &amp; Leadership" name="twitter:title"/>
+<meta content="Service &amp; Leadership" property="og:title"/>
+<meta content="At William &amp; Mary, service and leadership are central to our mission of cultivating responsible, engaged citizens." name="twitter:description"/>
+<meta content="At William &amp; Mary, service and leadership are central to our mission of cultivating responsible, engaged citizens." property="og:description"/>
+<meta content="https://www.wm.edu/images/social/default2.jpg" name="twitter:image"/>
+<meta content="William &amp; Mary sign" name="twitter:image:alt"/>
+<meta content="https://www.wm.edu/images/social/default2.jpg" property="og:image"/>
+<meta content="William &amp; Mary sign" property="og:image:alt"/>
+</meta></head>
+<body>
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-ND77N3" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<img alt="William &amp; Mary" id="print_logo" src="/images/wm_logo_horizontal_green_gold.svg" width="275"/> <a class="skip-to-main-content-link" href="#main_content">Skip to main content</a>
+<div class="wm-topbar">
+<div class="wm-topbar__logo"><!-- closed menu - logo --> <a aria-label="Home" class="wm-topbar__logo-link" data-gtm="main-logo" href="/index.php"> <img alt="William &amp; Mary" class="wm-topbar__logo-img" id="top_mark" src="/images/wm_logo_horizontal_green_gold.svg"/></a></div>
+<div class="button-wrapper-for-older-browsers"><nav class="wm-topbar__buttons"><!-- site menu button --> <a aria-controls="wm-site-menu" aria-expanded="false" class="wm-topbar__menu-button wm-js-site-menu-button" data-gtm="mearch-button" href="#footer" onclick="return false;"> <span class="wm-topbar__menu-button-text">W&amp;M MENU</span> <img alt="" class="close-x" height="30" src="/images/menu-mag.svg" width="43"/> </a></nav></div>
+</div>
+<!--<div class="menubackdrop-white"><a aria-label="Home" class="wm_logo_banner" href="/index" id="wm_logo_banner"> <img alt="William &amp; Mary" src="/images/wm-menu-banner.svg" /> </a></div>-->
+<div class="menubackdrop-dark"></div>
+<header id="main-header">
+<div class="wm-site-menu" id="wm-site-menu">
+<!-- close site menu button -->
+<a class="wm-topbar__menu-button -close-x wm-js-site-menu-button-close-x" href="#">
+<!-- close site menu button -->
+<i class="fa-thin fa-xmark"></i>
+<span class="sr-only">Close menu</span>
+</a>
+<a class="wm_logo_banner mobile" href="/index.php" id="wm_logo_banner"><img alt="William &amp; Mary" loading="lazy" src="/images/wm-menu-banner.svg"/></a>
+<div class="wm-site-menu__primary-wrapper">
+<!-- search -->
+<div class="wm-search">
+<div class="wm-search__form">
+<form action="/about/search/index.php" class="wm-search__form search_form cf" id="side_search_site" method="get" role="search">
+<label for="q">
+<span class="h-sr-only">Search</span>
+</label>
+<input autocomplete="off" class="wm-search__input" id="q" name="q" placeholder="Search wm.edu" type="text"/>
+<div class="wm-search__submit-wrapper">
+<button class="wm-search__submit" title="Search" type="submit">
+<i class="fa-regular fa-magnifying-glass"></i>
+<span class="h-sr-only">Submit Search</span>
+</button>
+</div>
+<span class="wm-search__caption">Hit enter to search all of wm.edu</span>
+</form>
+</div>
+<div class="wm-search__common-searches">
+<div class="label">
+                Popular Topics
+            </div>
+<ul class="items">
+</ul>
+</div>
+<div class="wm-search__suggested-results">
+<div class="label">
+                Suggested Results
+            </div>
+<ul class="items">
+</ul>
+</div>
+<div class="nav-news-events --inSearch">
+<a class="nav-news-events__link" href="https://news.wm.edu">News<i class="fa-regular fa-angle-right"></i></a>
+<a class="nav-news-events__link" href="https://events.wm.edu">Events<i class="fa-regular fa-angle-right"></i></a>
+</div>
+</div>
+<!-- end search -->
+<div class="wm-site-menu__divider"></div>
+<!-- primary nav -->
+<nav aria-label="Main" aria-live="polite" class="accordion primary-nav" data-behavior="accordion" role="tablist">
+<ul class="primary-nav__mainmenu">
+<li class="accordion__item js-show-item-default" data-binding="expand-accordion-item">
+<a href="/admission/index.php">Admission &amp; Aid</a>
+<button aria-controls="panel0" aria-expanded="false" aria-selected="false" class="accordion__title primary-nav__togglesubmenu" data-binding="expand-accordion-trigger" id="tab0" role="tab" tabindex="0"><span class="h-sr-only">toggle submenu</span></button>
+<div aria-hidden="true" aria-labelledby="tab0" class="accordion__content primary-nav__submenu" data-binding="expand-accordion-container" id="panel0" role="tabpanel">
+<ul class="accordion__content-inner" id="sub-0">
+<li>
+<a href="/admission/undergraduateadmission/index.php">Undergraduate Admission</a>
+</li>
+<li>
+<a href="/admission/graduateadmission/index.php">Graduate Admission</a>
+</li>
+<li>
+<a href="/admission/tuition/index.php">Tuition &amp; Fees</a>
+</li>
+<li>
+<a href="/admission/financialaid/index.php">Financial Aid</a>
+</li>
+<li>
+<a href="/admission/virtualtour/index.php">Virtual Tour</a>
+</li>
+</ul>
+</div>
+</li>
+<li class="accordion__item js-show-item-default" data-binding="expand-accordion-item">
+<a href="/academics/index.php">Academics</a>
+<button aria-controls="panel1" aria-expanded="false" aria-selected="false" class="accordion__title primary-nav__togglesubmenu" data-binding="expand-accordion-trigger" id="tab1" role="tab" tabindex="0"><span class="h-sr-only">toggle submenu</span></button>
+<div aria-hidden="true" aria-labelledby="tab1" class="accordion__content primary-nav__submenu" data-binding="expand-accordion-container" id="panel1" role="tabpanel">
+<ul class="accordion__content-inner" id="sub-1">
+<li>
+<a href="/academics/programs/index.php">Program Finder</a>
+</li>
+<li>
+<a href="/academics/undergraduateprograms/index.php">Undergraduate Programs</a>
+</li>
+<li>
+<a href="/academics/graduateprograms/index.php">Graduate Programs</a>
+</li>
+<li>
+<a href="/academics/online/index.php">Online Programs</a>
+</li>
+<li>
+<a href="/academics/precollege/index.php">Pre-College Programs</a>
+</li>
+<li>
+<a href="/academics/faculty/index.php">Faculty</a>
+</li>
+</ul>
+</div>
+</li>
+<li class="accordion__item js-show-item-default" data-binding="expand-accordion-item">
+<a href="/student-life/index.php">Student Life</a>
+<button aria-controls="panel2" aria-expanded="false" aria-selected="false" class="accordion__title primary-nav__togglesubmenu" data-binding="expand-accordion-trigger" id="tab2" role="tab" tabindex="0"><span class="h-sr-only">toggle submenu</span></button>
+<div aria-hidden="true" aria-labelledby="tab2" class="accordion__content primary-nav__submenu" data-binding="expand-accordion-container" id="panel2" role="tabpanel">
+<ul class="accordion__content-inner" id="sub-2">
+<li>
+<a href="/student-life/housing-dining/index.php">Housing &amp; Dining</a>
+</li>
+<li>
+<a href="/student-life/athletics-recreation/index.php">Athletics &amp; Recreation</a>
+</li>
+<li>
+<a href="/student-life/clubs-organizations/index.php">Clubs &amp; Organizations</a>
+</li>
+<li>
+<a href="/student-life/campus-beyond/index.php">Campus &amp; Beyond</a>
+</li>
+<li>
+<a href="/student-life/health-wellness/index.php">Health &amp; Wellness</a>
+</li>
+<li>
+<a href="/student-life/arts-performance/index.php">Arts &amp; Performance</a>
+</li>
+<li>
+<a href="/student-life/community-belonging/index.php">Community &amp; Belonging</a>
+</li>
+<li>
+<a href="/student-life/service-leadership/index.php">Service &amp; Leadership</a>
+</li>
+</ul>
+</div>
+</li>
+<li class="accordion__item js-show-item-default" data-binding="expand-accordion-item">
+<a href="/research/index.php">Research</a>
+<button aria-controls="panel3" aria-expanded="false" aria-selected="false" class="accordion__title primary-nav__togglesubmenu" data-binding="expand-accordion-trigger" id="tab3" role="tab" tabindex="0"><span class="h-sr-only">toggle submenu</span></button>
+<div aria-hidden="true" aria-labelledby="tab3" class="accordion__content primary-nav__submenu" data-binding="expand-accordion-container" id="panel3" role="tabpanel">
+<ul class="accordion__content-inner" id="sub-3">
+<li>
+<a href="/research/news/index.php">Research News</a>
+</li>
+<li>
+<a href="/research/centers/index.php">Centers &amp; Institutes</a>
+</li>
+<li>
+<a href="/research/facultyresearch/index.php">Faculty Research</a>
+</li>
+<li>
+<a href="/research/studentresearch/index.php">Student Research</a>
+</li>
+<li>
+<a href="/research/collections/index.php">Collections</a>
+</li>
+<li>
+<a href="/research/publications/index.php">Publications &amp; Journals</a>
+</li>
+<li>
+<a href="/research/resources/index.php">Resources</a>
+</li>
+</ul>
+</div>
+</li>
+<li class="accordion__item js-show-item-default" data-binding="expand-accordion-item">
+<a href="/about/index.php">About</a>
+<button aria-controls="panel4" aria-expanded="false" aria-selected="false" class="accordion__title primary-nav__togglesubmenu" data-binding="expand-accordion-trigger" id="tab4" role="tab" tabindex="0"><span class="h-sr-only">toggle submenu</span></button>
+<div aria-hidden="true" aria-labelledby="tab4" class="accordion__content primary-nav__submenu" data-binding="expand-accordion-container" id="panel4" role="tabpanel">
+<ul class="accordion__content-inner" id="sub-4">
+<li>
+<a href="/about/wmataglance/index.php">W&amp;M at a Glance</a>
+</li>
+<li>
+<a href="/about/leadership-values/index.php">Leadership &amp; Values</a>
+</li>
+<li>
+<a href="/about/history/index.php">History</a>
+</li>
+<li>
+<a href="/about/traditions/index.php">Traditions</a>
+</li>
+<li>
+<a href="/about/life-after-wm/index.php">Life After W&amp;M</a>
+</li>
+<li>
+<a href="/about/whats-new/index.php">What's New</a>
+</li>
+<li>
+<a href="/about/visiting/index.php">Visit Campus</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</nav>
+<!-- bottom links -->
+<nav class="nav-bottom__links --inPrimary">
+<a class="nav-bottom__link" href="/about/visiting/index.php">Visit<i class="fa-regular fa-angle-right"></i></a>
+<a class="nav-bottom__link" href="/admission/undergraduateadmission/how-to-apply/index.php">Apply<i class="fa-regular fa-angle-right"></i></a>
+<a class="nav-bottom__link" href="/admission/undergraduateadmission/signup/index.php">Request Info<i class="fa-regular fa-angle-right"></i></a>
+</nav>
+<!-- end bottom links -->
+</div>
+<!-- end primary wrapper -->
+<!-- tactical -->
+<div class="tac-wrapper">
+<nav aria-label="Quick links" class="tactical-nav">
+<ul class="tactical-nav__list">
+<li>
+<a href="https://my.wm.edu">
+                            myW&amp;M
+                        </a>
+</li>
+<li>
+<a href="https://directory.wm.edu/people/">
+                            Directory
+                        </a>
+</li>
+<li>
+<a href="https://tribeathletics.com/">
+                            Athletics
+                        </a>
+</li>
+<li>
+<a href="/atoz/a/index.php">
+                            W&amp;M A-Z
+                        </a>
+</li>
+<li>
+<a href="https://libraries.wm.edu">
+                            Libraries
+                        </a>
+</li>
+<li>
+<a href="https://giving.wm.edu/?utm_source=wm_website&amp;utm_medium=referral&amp;utm_campaign=tactical_nav">
+                            Giving
+                        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="wm-resources des-tab">
+<div class="wm-resources__side-panel">
+<a class="wm_logo_banner des-tab" href="/index.php" id="wm_logo_banner"><img alt="William &amp; Mary" loading="lazy" src="/images/wm-menu-banner.svg"/></a>
+<div class="resources-for">
+<span class="wm-resources-text">Resources FOR...</span>
+</div>
+<nav class="wm-resources__links">
+<ul class="wm-resources__list">
+<li>
+<a class="wm-resources__link" href="/currentstudents/index.php">Current Students</a>
+</li>
+<li>
+<a class="wm-resources__link" href="/facultystaff/index.php">Faculty &amp; Staff</a>
+</li>
+<li>
+<a class="wm-resources__link" href="/parentsandfamilies/index.php">Parents &amp; Families</a>
+</li>
+<li>
+<a class="wm-resources__link" href="https://wmalumni.com/">Alumni &amp; Friends</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div aria-hidden="true" class="nav-news-events --atBottom">
+<a class="nav-news-events__link" href="https://news.wm.edu">News<i class="fa-regular fa-angle-right"></i></a>
+<a class="nav-news-events__link" href="https://events.wm.edu">Events<i class="fa-regular fa-angle-right"></i></a>
+</div>
+<!-- bottom links -->
+<nav class="nav-bottom__links --atBottom">
+<a class="nav-bottom__link" href="/about/visiting/index.php">Visit<i class="fa-regular fa-angle-right"></i></a>
+<a class="nav-bottom__link" href="/admission/undergraduateadmission/how-to-apply/index.php">Apply<i class="fa-regular fa-angle-right"></i></a>
+<a class="nav-bottom__link" href="/admission/undergraduateadmission/signup/index.php">Request Info<i class="fa-regular fa-angle-right"></i></a>
+</nav>
+<!-- end bottom links -->
+<div class="wm-resources --atBottom">
+<div class="wm-resources__side-panel">
+<div class="resources-for">
+<span class="wm-resources-text">Resources FOR...</span>
+</div>
+<nav class="wm-resources__links">
+<ul class="wm-resources__list">
+<li>
+<a class="wm-resources__link" href="/currentstudents/index.php">Current Students</a>
+</li>
+<li>
+<a class="wm-resources__link" href="/facultystaff/index.php">Faculty &amp; Staff</a>
+</li>
+<li>
+<a class="wm-resources__link" href="/parentsandfamilies/index.php">Parents &amp; Families</a>
+</li>
+<li>
+<a class="wm-resources__link" href="https://wmalumni.com/">Alumni &amp; Friends</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="m-header -small -text-cc -img-cc"><div class="m-title-card"><div class="m-title-card__dept"><a class="Medium" href="/student-life/index.php">Student Life</a></div></div>
+<div class="m-header__photo" style="background-image:url(/images/bannerphotos/studentlife/homecoming.jpg);"> <div class="curtain"></div> </div>
+</div>
+</header>
+<main class="hasSidebar clearfix" id="main_content">
+<div class="content_wrapper">
+<section id="content">
+<div class="user_content">
+<div class="user_content--wrapper">
+<nav>
+<div class="m-breadcrumbs" id="breadcrumbs">
+<div class="m-breadcrumbs__link"><a href="/index.php">Home</a></div>
+<div class="m-breadcrumbs__link"><a href="/student-life/index.php">Student Life</a></div>
+<div class="m-breadcrumbs__link">Service &amp; Leadership</div>
+</div>
+</nav>
+<header class="m-title">
+<h1 class="m-title__main-title">Service &amp; Leadership</h1>
+</header>
+<nav class="page_nav">
+<button aria-controls="page_nav_mobile" aria-expanded="false" class="wm-page-menu-button wm-js-page-menu-button" id="qn_sitemenu">
+<span class="wm-page-menu-button__togglemenubutton"></span>
+<span class="wm-page-menu-button__text">In This Section</span>
+</button>
+<ul class="wm-page_menu">
+<li>
+<a class="" href="/student-life/housing-dining/index.php">Housing &amp; Dining</a>
+</li>
+<li>
+<a class="" href="/student-life/athletics-recreation/index.php">Athletics &amp; Recreation</a>
+</li>
+<li>
+<a class="" href="/student-life/clubs-organizations/index.php">Clubs &amp; Organizations</a>
+</li>
+<li>
+<a class="" href="/student-life/campus-beyond/index.php">Campus &amp; Beyond</a>
+</li>
+<li>
+<a class="" href="/student-life/health-wellness/index.php">Health &amp; Wellness</a>
+</li>
+<li>
+<a class="" href="/student-life/arts-performance/index.php">Arts &amp; Performance</a>
+</li>
+<li>
+<a class="" href="/student-life/community-belonging/index.php">Community &amp; Belonging</a>
+</li>
+<li>
+<a class="is-active" href="/student-life/service-leadership/index.php">Service &amp; Leadership</a>
+</li>
+</ul>
+<div class="extra-nav"></div>
+</nav>
+<p>At William &amp; Mary, service and leadership are central to our <a href="https://www.wm.edu/about/administration/vision-mission-values/" rel="noopener noreferrer" target="_blank">mission</a> of cultivating responsible, engaged citizens.</p>
+<div>Through the offices of <a href="https://www.wm.edu/offices/cce/" rel="noopener noreferrer" target="_blank">Civic &amp; Community Engagement</a>, <a href="https://www.wm.edu/offices/studentleadershipdevelopment/" rel="noopener noreferrer" target="_blank">Student Leadership Development </a>and many other organizations on and off campus, students are encouraged to actively contribute to society and develop skills that will enable them to make a positive impact in their communities. How will you get involved?</div>
+</div>
+</div>
+<div id="sidebar">
+<input name="hasSidebar" type="hidden" value="N"/>
+</div>
+</section>
+</div>
+<section class="page-theme-wrapper h-theme-green">
+<div class="wm-row Stats h-theme-silver">
+<div class="wm-row__mainWrapper">
+<h2 class="wm-row__title StatsRow__title">W&amp;M's Tradition of Service</h2>
+<div class="wm-row__intro-text StatsRow__intro-text">
+<p>The university’s focus on integrity, collaboration and social responsibility prepares graduates to lead with empathy and make meaningful contributions on both local and global scales.</p>
+</div>
+<ul class="wm-cards --cards4 --chars6 h-theme-cards Stats__cards">
+<li class="wm-card h-theme-card StatsRow__card -alt-theme wm-card--isLink">
+<div class="StatsRow__link">
+<i class="fa-solid fa-arrow-up-right"></i>
+</div>
+<!-- visual area with designed text -->
+<div class="wm-card__graphic-section StatsRow__graphic-section">
+<div class="wm-statnum">
+<sup class="wm-statnum--prepend-top">Top</sup> <span class="wm-statnum__number">10</span>
+</div>
+</div>
+<!-- text area -->
+<div class="wm-card__text-section StatsRow__text-section">
+<div class="wm-card__title wm-description-text__title StatsRow__description-text-title"><a href="/about/wmataglance/rankings/index.php" target="_self">Best School for Making an Impact</a></div>
+<div class="wm-description-text__publication StatsRow__description-text-publication">Princeton Review</div> </div>
+</li>
+<li class="wm-card h-theme-card StatsRow__card -alt-theme wm-card--isLink">
+<div class="StatsRow__link">
+<i class="fa-solid fa-arrow-up-right-from-square"></i>
+</div>
+<!-- visual area with designed text -->
+<div class="wm-card__graphic-section StatsRow__graphic-section">
+<div class="wm-statnum">
+<span class="wm-statnum__number">70</span>
+<sub class="wm-statnum--append-top">%</sub> </div>
+</div>
+<!-- text area -->
+<div class="wm-card__text-section StatsRow__text-section">
+<div class="wm-card__title wm-description-text__title StatsRow__description-text-title"><a href="https://wm.givepulse.com/group/405265-William-and-Mary" target="_self">of Students participate with 60+ community service groups</a></div>
+</div>
+</li>
+<li class="wm-card h-theme-card StatsRow__card -alt-theme wm-card--isLink">
+<div class="StatsRow__link">
+<i class="fa-solid fa-arrow-up-right-from-square"></i>
+</div>
+<!-- visual area with designed text -->
+<div class="wm-card__graphic-section StatsRow__graphic-section">
+<div class="wm-statnum">
+<sup class="wm-statnum--prepend-top">#</sup> <span class="wm-statnum__number">8</span>
+</div>
+</div>
+<!-- text area -->
+<div class="wm-card__text-section StatsRow__text-section">
+<div class="wm-card__title wm-description-text__title StatsRow__description-text-title"><a href="https://news.wm.edu/2024/09/24/wms-long-view-prepares-graduates-for-lives-of-meaning-and-success/" target="_self">top medium colleges &amp; universities historically producing the most Peace Corps volunteers</a></div>
+</div>
+</li>
+<li class="wm-card h-theme-card StatsRow__card -alt-theme wm-card--isLink">
+<div class="StatsRow__link">
+<i class="fa-solid fa-arrow-up-right"></i>
+</div>
+<!-- visual area with designed text -->
+<div class="wm-card__graphic-section StatsRow__graphic-section">
+<div class="wm-statnum">
+<sup class="wm-statnum--prepend-top">$</sup> <span class="wm-statnum__number">60,000</span>
+</div>
+</div>
+<!-- text area -->
+<div class="wm-card__text-section StatsRow__text-section">
+<div class="wm-card__title wm-description-text__title StatsRow__description-text-title"><a href="/offices/cce/index.php" target="_self">in grant funding available for community engagement internships and projects</a></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="page-theme-wrapper h-theme-silver">
+<div class="wm-row CalloutRow h-theme-silver">
+<div class="wm-row__mainWrapper">
+<h2 class="wm-row__title CalloutRow__title">Ways to Get Involved</h2>
+<div class="wm-row__intro-text CalloutRow__intro-text">
+<p>Opportunities to get involved in service abound at W&amp;M. You can lead your <a href="https://tribelink.wm.edu/organizations">student club</a>, work in <a href="https://www.wm.edu/offices/residencelife/student-employment-resources/opportunities/">residence life</a>, join a board or council, become a <a href="https://www.wm.edu/offices/communityvalues/gbvras/thehaven/volunteer/">confidential peer advocate</a> and more.</p>
+<p>W&amp;M GivePulse is the university's online platform and central hub that connects campus and community by sharing opportunities, facilitating new partnerships and offering resources to students, community organizations, staff and faculty. </p>
+</div>
+<div class="wm-row__buttons CalloutRow__buttons">
+<a class="wm-row__button button CalloutRow__button" href="/offices/cce/givepulse/index.php" target="_self">
+<span>W&amp;M GivePulse</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="page-theme-wrapper h-theme-white">
+<div class="wm-row IconRow h-theme-silver">
+<div class="wm-row__mainWrapper">
+<h2 class="wm-row__title IconRow__title">Civic &amp; Community Engagement</h2>
+<div class="wm-row__intro-text IconRow__intro-text">
+<p>Explore <a href="https://wm.givepulse.com/group/405265-William-and-Mary">programming</a> and resources from the <a href="/offices/cce/index.php" target="_parent">Office of Civic &amp; Community Engagement</a> to become a lifelong community-centered leader.</p>
+</div>
+<ul class="wm-cards --cards7 h-theme-cards IconRow__cards --landscape">
+<li class="wm-card h-theme-card IconRow__card -alt-theme wm-card--isLink">
+<div class="IconRow__link">
+<i class="fa-solid fa-arrow-up-right"></i>
+</div>
+<div class="wm-card__graphic-section IconRow__graphic-section">
+<div class="IconRow__icon">
+<i aria-hidden="true" class="fa-duotone fa-map-location-dot"></i>
+</div>
+</div>
+<div class="wm-card__text-section IconRow__text-section">
+<h3 class="wm-card__title wm-description-text__title IconRow__description-text-title"><a href="/offices/cce/programs/branchout/index.php" target="_self">Branch Out Alternative Breaks</a></h3>
+<p class="wm-description-text__caption IconRow__description-text-caption">Sign up for service-based learning trips during school breaks that are free to all enrolled W&amp;M students.</p> </div>
+</li>
+<li class="wm-card h-theme-card IconRow__card -alt-theme wm-card--isLink">
+<div class="IconRow__link">
+<i class="fa-solid fa-arrow-up-right"></i>
+</div>
+<div class="wm-card__graphic-section IconRow__graphic-section">
+<div class="IconRow__icon">
+<i aria-hidden="true" class="fa-duotone fa-medal"></i>
+</div>
+</div>
+<div class="wm-card__text-section IconRow__text-section">
+<h3 class="wm-card__title wm-description-text__title IconRow__description-text-title"><a href="/offices/cce/programs/civic_leadership_program/index.php" target="_self">Civic Leadership Program</a></h3>
+<p class="wm-description-text__caption IconRow__description-text-caption">Pursue two one-credit course opportunities and at least $1,000 for a community-impact summer project.</p> </div>
+</li>
+<li class="wm-card h-theme-card IconRow__card -alt-theme wm-card--isLink">
+<div class="IconRow__link">
+<i class="fa-solid fa-arrow-up-right"></i>
+</div>
+<div class="wm-card__graphic-section IconRow__graphic-section">
+<div class="IconRow__icon">
+<i aria-hidden="true" class="fa-duotone fa-backpack"></i>
+</div>
+</div>
+<div class="wm-card__text-section IconRow__text-section">
+<h3 class="wm-card__title wm-description-text__title IconRow__description-text-title"><a href="/offices/cce/programs/education-programs/index.php" target="_self">Education &amp; Youth Department Programs</a></h3>
+<p class="wm-description-text__caption IconRow__description-text-caption">Participate in AmeriCorps, Griffin Mentorship Program and other pre-K-12 youth programs.</p> </div>
+</li>
+<li class="wm-card h-theme-card IconRow__card -alt-theme wm-card--isLink">
+<div class="IconRow__link">
+<i class="fa-solid fa-arrow-up-right"></i>
+</div>
+<div class="wm-card__graphic-section IconRow__graphic-section">
+<div class="IconRow__icon">
+<i aria-hidden="true" class="fa-duotone fa-screwdriver-wrench"></i>
+</div>
+</div>
+<div class="wm-card__text-section IconRow__text-section">
+<h3 class="wm-card__title wm-description-text__title IconRow__description-text-title"><a href="/offices/cce/programs/service-days/index.php" target="_self">Service Saturday</a></h3>
+<p class="wm-description-text__caption IconRow__description-text-caption">Join monthly one-time volunteer projects that serve local community organizations.</p> </div>
+</li>
+<li class="wm-card h-theme-card IconRow__card -alt-theme wm-card--isLink">
+<div class="IconRow__link">
+<i class="fa-solid fa-arrow-up-right"></i>
+</div>
+<div class="wm-card__graphic-section IconRow__graphic-section">
+<div class="IconRow__icon">
+<i aria-hidden="true" class="fa-duotone fa-hands-holding-heart"></i>
+</div>
+</div>
+<div class="wm-card__text-section IconRow__text-section">
+<h3 class="wm-card__title wm-description-text__title IconRow__description-text-title"><a href="/offices/cce/programs/we/index.php" target="_self">Williamsburg Engagement</a></h3>
+<p class="wm-description-text__caption IconRow__description-text-caption">Connect with student leaders to volunteer weekly in a local nonprofit organization.</p> </div>
+</li>
+<li class="wm-card h-theme-card IconRow__card -alt-theme wm-card--isLink">
+<div class="IconRow__link">
+<i class="fa-solid fa-arrow-up-right"></i>
+</div>
+<div class="wm-card__graphic-section IconRow__graphic-section">
+<div class="IconRow__icon">
+<i aria-hidden="true" class="fa-duotone fa-ballot-check"></i>
+</div>
+</div>
+<div class="wm-card__text-section IconRow__text-section">
+<h3 class="wm-card__title wm-description-text__title IconRow__description-text-title"><a href="/offices/cce/voter-engagement/index.php" target="_self">Voter Engagement Committee</a></h3>
+<p class="wm-description-text__caption IconRow__description-text-caption">Host year-round events that encourage voter education, registration and participation.</p> </div>
+</li>
+<li class="wm-card h-theme-card IconRow__card -alt-theme wm-card--isLink">
+<div class="IconRow__link">
+<i class="fa-solid fa-arrow-up-right"></i>
+</div>
+<div class="wm-card__graphic-section IconRow__graphic-section">
+<div class="IconRow__icon">
+<i aria-hidden="true" class="fa-duotone fa-hand-holding-dollar"></i>
+</div>
+</div>
+<div class="wm-card__text-section IconRow__text-section">
+<h3 class="wm-card__title wm-description-text__title IconRow__description-text-title"><a href="/offices/cce/awards_funding/funding/index.php" target="_self">Community Service Grants</a></h3>
+<p class="wm-description-text__caption IconRow__description-text-caption">Funding opportunities for community-engaged projects and internships</p> </div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="page-theme-wrapper h-theme-green">
+<div class="wm-row FiftyFiftyRow h-theme-silver">
+<div class="wm-row__mainWrapper wm-split__container h-switch">
+<div class="wm-split__side FiftyFiftyRow__side -image">
+<figure>
+<img alt="" class="FiftyFiftyRow__image h-background-image__img" src="/student-life/_images/service-leadership/funding_50-50-row1288x860.jpg"/>
+</figure>
+</div>
+<div class="wm-split__side wm-text FiftyFiftyRow__side -text">
+<h2 class="wm-row__title FiftyFiftyRow__title">Student Funding &amp; Awards</h2>
+<div class="wm-row__intro-text FiftyFiftyRow__intro-text">
+<p>Several <a href="/offices/cce/awards_funding/funding/index.php">student funding options </a>are available to support your community-engaged projects and internships. Students, faculty and community partners can also be recognized with <a href="/offices/cce/awards_funding/awards/index.php">awards</a> for their active citizenship and exemplary community engagement. Incoming first-year students can even be <a href="/offices/sel/scholarships/index.php">awarded a scholarship</a> for their leadership achievements.</p>
+</div>
+<div class="wm-row__buttons FiftyFiftyRow__buttons">
+<a class="wm-row__button button FiftyFiftyRow__button" href="/offices/cce/awards_funding/funding/index.php" target="_self">
+<span>Student Funding</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="page-theme-wrapper h-theme-silver">
+<div class="wm-row FiftyFiftyRow h-theme-white">
+<div class="wm-row__mainWrapper wm-split__container">
+<div class="wm-split__side FiftyFiftyRow__side -image">
+<figure>
+<img alt="" class="FiftyFiftyRow__image h-background-image__img" src="/student-life/_images/service-leadership/michelleindelicato_50-50-row1288x860.jpg"/>
+</figure>
+</div>
+<div class="wm-split__side wm-text FiftyFiftyRow__side -text">
+<h2 class="wm-row__title FiftyFiftyRow__title">Celebrated for Service</h2>
+<div class="wm-row__intro-text FiftyFiftyRow__intro-text">
+<p>“Having the opportunity to engage so deeply with the Williamsburg community has by far been one of the biggest highlights of my time at William &amp; Mary. I’ve been able to grow relationships with local nonprofits, community members from diverse backgrounds and students who share my passion for service.’’</p>
+<p>—<a href="https://news.wm.edu/2024/08/27/michelle-indelicato-25-debbie-ramer-to-be-celebrated-for-service-to-the-community/"> Michelle Indelicato ’25</a>, <span>2024 President's Award for Service to Community Winner, </span>sociology and religious studies double major with a concentration in social problems, policy and justice from Alexandria, VA</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="page-theme-wrapper h-theme-white">
+<div class="wm-row IconRow h-theme-silver">
+<div class="wm-row__mainWrapper">
+<h2 class="wm-row__title IconRow__title">Campus Resources to Learn to Lead</h2>
+<div class="wm-row__intro-text IconRow__intro-text">
+<p>Through various initiatives, organizations and opportunities, students can cultivate skills that prepare them to become principled and effective leaders in a diverse world.</p>
+</div>
+<ul class="wm-cards --cards5 h-theme-cards IconRow__cards --landscape">
+<li class="wm-card h-theme-card IconRow__card -default-theme wm-card--isLink">
+<div class="IconRow__link">
+<i class="fa-solid fa-arrow-up-right"></i>
+</div>
+<div class="wm-card__graphic-section IconRow__graphic-section">
+<div class="IconRow__icon">
+<i aria-hidden="true" class="fa-duotone fa-chart-user"></i>
+</div>
+</div>
+<div class="wm-card__text-section IconRow__text-section">
+<h3 class="wm-card__title wm-description-text__title IconRow__description-text-title"><a href="/offices/sel/index.php" target="_self">Student Engagement &amp; Leadership</a></h3>
+<p class="wm-description-text__caption IconRow__description-text-caption">Explore opportunities with W&amp;M’s over 475 clubs, fraternity and sorority life and more. </p> </div>
+</li>
+<li class="wm-card h-theme-card IconRow__card -default-theme wm-card--isLink">
+<div class="IconRow__link">
+<i class="fa-solid fa-arrow-up-right"></i>
+</div>
+<div class="wm-card__graphic-section IconRow__graphic-section">
+<div class="IconRow__icon">
+<i aria-hidden="true" class="fa-duotone fa-transporter"></i>
+</div>
+</div>
+<div class="wm-card__text-section IconRow__text-section">
+<h3 class="wm-card__title wm-description-text__title IconRow__description-text-title"><a href="/offices/studentleadershipdevelopment/index.php" target="_self">Student Leadership Development</a></h3>
+<p class="wm-description-text__caption IconRow__description-text-caption">Attend trainings, workshops, courses and other opportunities for student leadership on campus.</p> </div>
+</li>
+<li class="wm-card h-theme-card IconRow__card -default-theme wm-card--isLink">
+<div class="IconRow__link">
+<i class="fa-solid fa-arrow-up-right"></i>
+</div>
+<div class="wm-card__graphic-section IconRow__graphic-section">
+<div class="IconRow__icon">
+<i aria-hidden="true" class="fa-duotone fa-scale-balanced"></i>
+</div>
+</div>
+<div class="wm-card__text-section IconRow__text-section">
+<h3 class="wm-card__title wm-description-text__title IconRow__description-text-title"><a href="/offices/communityvalues/sarp/honorcodeandcouncils/infoonhonorcouncil/index.php" target="_self">Honor Councils</a></h3>
+<p class="wm-description-text__caption IconRow__description-text-caption"> Join a student-run council dedicated to upholding the first honor code in the nation.</p> </div>
+</li>
+<li class="wm-card h-theme-card IconRow__card -default-theme wm-card--isLink">
+<div class="IconRow__link">
+<i class="fa-solid fa-arrow-up-right"></i>
+</div>
+<div class="wm-card__graphic-section IconRow__graphic-section">
+<div class="IconRow__icon">
+<i aria-hidden="true" class="fa-duotone fa-timeline"></i>
+</div>
+</div>
+<div class="wm-card__text-section IconRow__text-section">
+<h3 class="wm-card__title wm-description-text__title IconRow__description-text-title"><a href="/offices/step/current-students/student-leaders/index.php" target="_self">Student Transition Engagement Programs (STEP)</a></h3>
+<p class="wm-description-text__caption IconRow__description-text-caption">Help STEP deliver initiatives and programs to support the broader W&amp;M student experience.</p> </div>
+</li>
+<li class="wm-card h-theme-card IconRow__card -default-theme wm-card--isLink">
+<div class="IconRow__link">
+<i class="fa-solid fa-arrow-up-right"></i>
+</div>
+<div class="wm-card__graphic-section IconRow__graphic-section">
+<div class="IconRow__icon">
+<i aria-hidden="true" class="fa-duotone fa-heart"></i>
+</div>
+</div>
+<div class="wm-card__text-section IconRow__text-section">
+<h3 class="wm-card__title wm-description-text__title IconRow__description-text-title"><a href="/sites/cab/index.php" target="_self">Compassionate Action Board</a></h3>
+<p class="wm-description-text__caption IconRow__description-text-caption">Help bring compassion to the forefront of academics, thought and action at W&amp;M.</p> </div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="page-theme-wrapper h-theme-green">
+<div class="wm-row FiftyFiftyRow h-theme-white">
+<div class="wm-row__mainWrapper wm-split__container h-switch">
+<div class="wm-split__side FiftyFiftyRow__side -image">
+<figure class="video-figure">
+<div class="video-container">
+<iframe allowfullscreen="1" class="video" frameborder="0" id="ytplayer_240_200_WRQco0A1lR8" loading="lazy" src="https://www.youtube-nocookie.com/embed/WRQco0A1lR8?autohide=1&amp;showinfo=0&amp;rel=0&amp;wmode=transparent&amp;enablejsapi=1" title="YouTube video player" width="240"></iframe>
+</div>
+</figure>
+</div>
+<div class="wm-split__side wm-text FiftyFiftyRow__side -text">
+<h2 class="wm-row__title FiftyFiftyRow__title">Military Leadership</h2>
+<div class="wm-row__intro-text FiftyFiftyRow__intro-text">
+<p>Through a mix of hands-on exercises and classroom instruction, military and veteran students can access leadership training and activities. <span>The <a href="/academics/programs/militaryscience/index.php">Military Science Program &amp; Army ROTC</a> provide specialized training for future military leaders, while the <a href="/offices/osve/index.php">Office of Student Veteran Engagement</a> offers dedicated support and resources for veterans pursuing their education.</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="page-theme-wrapper h-theme-silver">
+<div class="wm-row FiftyFiftyRow h-theme-silver">
+<div class="wm-row__mainWrapper wm-split__container">
+<div class="wm-split__side FiftyFiftyRow__side -image">
+<figure>
+<img alt="" class="FiftyFiftyRow__image h-background-image__img" src="/student-life/_images/service-leadership/ted-decker-header-desktop_50-50-row1288x860.jpg"/>
+<figcaption>    Ted Decker, CEO, The Home Depot
+</figcaption>
+</figure>
+</div>
+<div class="wm-split__side wm-text FiftyFiftyRow__side -text">
+<h2 class="wm-row__title FiftyFiftyRow__title">Trailblazers &amp; Changemakers: W&amp;M Alumni Lead the Way</h2>
+<div class="wm-row__intro-text FiftyFiftyRow__intro-text">
+<p><span class="NormalTextRun SCXW180539953 BCX4">Meet the members of our community who are leading around the world.</span><span> </span><span class="NormalTextRun SCXW180539953 BCX4">From U.S. presidents to research scientists, diplomats to CEOs and </span><span class="NormalTextRun SCXW180539953 BCX4">Academy </span><span class="NormalTextRun SCXW180539953 BCX4">Award winners to World Cup and NFL head coaches, William &amp; Mary prepares students to succeed.</span></p>
+</div>
+<div class="wm-row__buttons FiftyFiftyRow__buttons">
+<a class="wm-row__button button FiftyFiftyRow__button" href="/peopleofwm/bold-leaders/index.php" target="_self">
+<span>Bold Leaders</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="page-theme-wrapper h-theme-green">
+<div class="wm-row CalloutRow h-theme-green">
+<div class="wm-row__mainWrapper">
+<h2 class="wm-row__title CalloutRow__title">Where could W&amp;M take you?</h2>
+<div class="wm-row__buttons CalloutRow__buttons">
+<a class="wm-row__button button CalloutRow__button" href="/academics/programs/index.php" target="_self">
+<span>Explore Programs</span>
+</a>
+<a class="wm-row__button button CalloutRow__button" href="/about/visiting/index.php" target="_self">
+<span>Visit Campus</span>
+</a>
+<a class="wm-row__button button CalloutRow__button" href="/admission/index.php" target="_self">
+<span>Apply to W&amp;M</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<script src="https://cascade-prod.static.wm.edu/_shared/static/js/shortcodes.js"></script>
+<script defer="true" src="https://cascade-prod.static.wm.edu/_shared/static/js/adjust-row-card-height.js"></script>
+</main>
+<footer class="footersection o-wm-footer" id="footer">
+<div class="o-wm-footer__wrapper">
+<div class="o-wm-footer__logo-column o-wm-footer__column col">
+<div><a data-gtm="footer-wordmark" href="/index.php"> <img alt="William &amp; Mary logo" loading="lazy" src="https://www.wm.edu/images/wm_vertical_single_line.svg"/> </a><hr/>
+<p class="o-wm-footer__text">Follow W&amp;M on Social Media:</p>
+<div class="footer_social-media-nav__wrapper"><a class="external-link sm_icon" data-gtm="footer-facebook" href="https://www.facebook.com/williamandmary"><i class="fab fa-facebook"></i><span class="sr-only">Facebook</span></a> <a class="external-link sm_icon" data-gtm="footer-youtube" href="https://www.youtube.com/williamandmary"><i class="fab fa-youtube"></i><span class="sr-only">YouTube</span></a> <a class="external-link sm_icon" data-gtm="footer-linkedin" href="https://www.linkedin.com/edu/school?id=19598"><i class="fa-brands fa-linkedin"></i><span class="sr-only">LinkedIn</span></a> <a class="external-link sm_icon" data-gtm="footer-instagram" href="https://instagram.com/william_and_mary"><i class="fab fa-instagram"></i> <span class="sr-only">Instagram</span> </a><a class="external-link sm_icon" data-gtm="footer-threads" href="https://www.threads.net/@william_and_mary"><i class="fa-brands fa-threads"></i> <span class="sr-only">Threads</span> </a></div>
+<a class="o-wm-footer__social" data-gtm="footer-social" href="https://www.wm.edu/social/index.php">Social Stream</a><hr/>
+<p class="o-wm-footer__city">Williamsburg, Virginia</p>
+<a class="o-wm-footer__contact" data-gtm="footer-contact" href="/contactus/index.php">Contact Us</a></div>
+</div>
+<div class="o-wm-footer__column col"><nav>
+<h2 class="o-wm-footer__title">Resources for</h2>
+<ul class="o-wm-footer__list" data-gtm="footer-infofor"><!--<li><a class="o-wm-footer__link" data-infofor="button_infofor_prospective" href="/admission/index">Prospective Students</a></li>-->
+<li><a class="o-wm-footer__link" data-infofor="button_infofor_current" href="/currentstudents/index.php">Current Students</a></li>
+<li><a class="o-wm-footer__link" data-infofor="button_infofor_facstaff" href="/facultystaff/index.php">Faculty &amp; Staff</a></li>
+<li><a class="o-wm-footer__link" data-infofor="button_infofor_parentsfamilies" href="/parentsandfamilies/index.php">Parents &amp; Families</a></li>
+<li><a class="o-wm-footer__link" data-infofor="button_infofor_alumni" href="https://wmalumni.com">Alumni &amp; Friends</a></li>
+</ul>
+</nav></div>
+<div class="o-wm-footer__column col"><nav>
+<h2 class="o-wm-footer__title">Discover</h2>
+<ul class="o-wm-footer__list" data-gtm="footer-discover">
+<li><a class="o-wm-footer__link" href="/admission/index.php">Admission &amp; Aid</a></li>
+<li><a class="o-wm-footer__link" href="/academics/index.php">Academics</a></li>
+<li><a class="o-wm-footer__link" href="/student-life/index.php">Student Life</a></li>
+<li><a class="o-wm-footer__link" href="/research/index.php">Research</a></li>
+<li><a class="o-wm-footer__link" href="/about/index.php">About</a></li>
+<li><a class="o-wm-footer__link" href="/news/index.php">News</a></li>
+</ul>
+</nav></div>
+<div class="o-wm-footer__column col"><nav>
+<h2 class="o-wm-footer__title">Quick Links</h2>
+<ul class="o-wm-footer__list" data-gtm="footer-quick">
+<li><a class="o-wm-footer__link" href="/about/search/index.php">Search W&amp;M</a></li>
+<li><a class="o-wm-footer__link" href="/atoz/index.php">W&amp;M A-Z</a></li>
+<li><a class="o-wm-footer__link" href="/offices/career/employers/index.php">Employers</a></li>
+<li><a class="o-wm-footer__link" href="/offices/uhr/careers/index.php">Careers at W&amp;M</a></li>
+<li><a class="o-wm-footer__link" href="/offices/publicsafety/emergency/index.php">Emergency</a></li>
+<li><a class="o-wm-footer__link" href="/report/index.php">Report Concerns</a></li>
+</ul>
+</nav></div>
+</div>
+<div class="o-wm-footer__miscinfo">
+<div class="o-wm-footer__miscinfo-wrapper">
+<div class="o-wm-footer__copyright">©2026 All Rights Reserved.</div>
+<ul class="o-wm-footer__misclist" data-gtm="footer-subfooter">
+<li class="o-wm-footer__miscitem"><a class="o-wm-footer__link" href="/offices/ce/equity/accessibility-at-wm/index.php">Accessibility</a></li>
+<li class="o-wm-footer__miscitem"><a class="o-wm-footer__link" href="/offices/ce/consumer-information/index.php">Consumer Information</a></li>
+<li class="o-wm-footer__miscitem"><a class="o-wm-footer__link" href="/offices/ce/compliance/nondiscrimination-notice/index.php">Non-Discrimination Notice</a></li>
+<li class="o-wm-footer__miscitem"><a class="o-wm-footer__link" href="/offices/ce/policies/index.php">Policies</a></li>
+<li class="o-wm-footer__miscitem"><a class="o-wm-footer__link" href="/aboutthissite/privacy/index.php">Privacy &amp; Security</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<script src="https://cascade-prod.static.wm.edu/_shared/static/js/plugins.js?v=011425" type="text/javascript"></script>
+<script src="/js/main.js?v=021926" type="text/javascript"></script>
+<script src="https://cascade-prod.static.wm.edu/_shared/static/js/_secondary-pages.js?v=042525" type="module"></script>
+<script>
+            console.log("No chatbot");
+        </script>
+</body>
+</html>
