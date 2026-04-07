@@ -208,6 +208,12 @@ __marimo__/
 .DS_Store
 
 
-wm_text_data/
-scraping_293272.err
-scraping_293272.out
+wm_text_data
+data_clean
+data_raw
+data
+logs
+
+scraping_297213.err
+scraping_297213.out
+

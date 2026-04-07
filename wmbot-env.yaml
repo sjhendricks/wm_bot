@@ -1,0 +1,7 @@
+name: wmbot-env
+channels:
+  - conda-forge
+dependencies:
+  - pandas
+  - beautifulsoup4
+  - requests
