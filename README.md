@@ -14,7 +14,8 @@ We scrape relevant webpages, extract clean text, and store the results in a stru
 - `metadata/` -> seed URLs and tracking files
 - `logs/` -> run logs and error logs 
 - `README.md` -> project overview and instructions
-
+- `wmbot-env.yaml` -> environment structure for the scraping env (no trafilatura)
+- `llm-env.yaml` -> environment structure for the llm env
 ---
 
 ## Scripts 
@@ -22,7 +23,12 @@ We scrape relevant webpages, extract clean text, and store the results in a stru
 - `00_scraper_env_create.sh` -> creates wmbot-env for webscraping and data collection
 - `00_create_llm_env.sh` -> creates llm-env for fine-tuning with axolotl
 - `01_scraper.py` -> main scraper for collecting W&M webpages
-- `02_format_files.py` -> formats raw data for downstream use
+- `02_format_files.py` -> currently editing. Prepares files for embeddings
+- `03_cosine.py` -> computes cosine similarity
+- `03_fine_tuning` -> 
+- `chunk_data.py` -> takes formatted json and extracts chunks (better performance)
+- `build_bm25.py` -> Creates pickle file for bm25 filtering (used in retrieval)
+- `embed_faiss.py` -> Creates pickle file for faiss semantic search (used in retrieval) 
 - `submit.sh` -> runs scraping jobs on HPC using SLURM
 - `submit_cleaner.sh` -> runs formatting/cleaning jobs on HPC
 - `archive/` -> older or unused scripts
@@ -36,6 +42,36 @@ We scrape relevant webpages, extract clean text, and store the results in a stru
 4. Format and clean outputs into `data_clean/`
 5. Prepare dataset for model use
 6. Use data with Axolotl for model training
+
+```mermaid
+flowchart TD
+
+    %% ===== DATA PIPELINE =====
+    A["Scrape<br/>01_scraper.py"] --> 
+    B["Format<br/>02_format_files.py"] --> 
+    C["Clean<br/>03_clean.py"] --> 
+    D["Chunk<br/>04_chunk.py"]
+
+    %% ===== RETRIEVAL INDEX =====
+    D --> E["Embed + Index<br/>FAISS / BM25<br/>05_embed_faiss.py + 06_build_bm25.py"]
+
+    %% ===== TRAINING =====
+    D --> L["Create Training Data"]
+    L --> M["Fine-tuning Preparations<br/>07_fine_tuning.py"]
+    M --> N["Axolotl Fine-Tuning<br/>QLoRA / DPO<br/> placeholder"]
+
+    %% ===== INFERENCE =====
+    G[User Query] --> H[Retriever]
+    E --> H
+
+    H --> I[Build Prompt]
+    G --> I
+
+    I --> J["LLM<br/>(Base or Fine-tuned)"]
+    J --> K[Response]
+
+    N --> J
+```
 
 ---
 
