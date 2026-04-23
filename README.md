@@ -19,16 +19,15 @@ We scrape relevant webpages, extract clean text, and store the results in a stru
 ---
 
 ## Scripts 
-- `00_set_up_conda.sh` -> sets up the scraper conda environment (use other script)
 - `00_scraper_env_create.sh` -> creates wmbot-env for webscraping and data collection
 - `00_create_llm_env.sh` -> creates llm-env for fine-tuning with axolotl
 - `01_scraper.py` -> main scraper for collecting W&M webpages
-- `02_format_files.py` -> currently editing. Prepares files for embeddings
-- `03_cosine.py` -> computes cosine similarity
-- `03_fine_tuning` -> 
-- `chunk_data.py` -> takes formatted json and extracts chunks (better performance)
-- `build_bm25.py` -> Creates pickle file for bm25 filtering (used in retrieval)
-- `embed_faiss.py` -> Creates pickle file for faiss semantic search (used in retrieval) 
+- `02_format_files.py` -> Prepares files for embeddings
+- `03_clean.py` -> data cleaning 
+- `04_chunk_data.py` -> takes formatted json and extracts chunks (better performance)
+- `05_embed_faiss.py` -> Creates pickle file for faiss semantic search (used in retrieval)
+- `06_build_bm25.py` -> Creates pickle file for bm25 filtering (used in retrieval)
+- `07_fine_tuning.py` -> Fine-tunes
 - `submit.sh` -> runs scraping jobs on HPC using SLURM
 - `submit_cleaner.sh` -> runs formatting/cleaning jobs on HPC
 - `archive/` -> older or unused scripts
