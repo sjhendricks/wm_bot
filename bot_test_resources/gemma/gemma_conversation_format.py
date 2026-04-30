@@ -47,5 +47,5 @@ def convert_jsonl(input_file, output_file):
 
 
 if __name__ == "__main__":
-    convert_jsonl("data/fine_tuning/fine_tuning_data.jsonl", "hannah/gemma/gemma_formatted_fine_tuning_data.jsonl")
+    convert_jsonl("data/fine_tuning/fine_tuning_data.jsonl", "bot_test_resources/gemma/gemma_formatted_fine_tuning_data.jsonl")
     print("Done converting JSONL with system prompt and cleaning!")
