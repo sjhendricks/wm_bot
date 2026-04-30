@@ -1,7 +1,6 @@
 # wm_bot
 
-> A retrieval-augmented generation (RAG) chatbot for answering questions about William & Mary, powered by a 3-stage hybrid retrieval pipeline (FAISS + BM25 + CrossEncoder reranking) and a QLoRA fine-tuned TinyLlama model served via a Gradio UI.
-
+> A retrieval-augmented generation (RAG) chatbot for answering questions about William & Mary, powered by a 3-stage hybrid retrieval pipeline (FAISS + BM25 + CrossEncoder reranking) and a QLoRA fine-tuned LLM (Llama 3, Gemma, or Mistral) served via a Gradio UI.
 
 **GitHub Repository:** https://github.com/sjhendricks/wm_bot
 
@@ -286,49 +285,10 @@ Below is the gradio interface that can be run through the .ipynb
 
 | Tool | Purpose | Reference |
 |------|---------|-----------|
-| [trafilatura](https://github.com/adbar/trafilatura) | Web text extraction | 
-@inproceedings{barbaresi-2021-trafilatura,
-  title = {{Trafilatura: A Web Scraping Library and Command-Line Tool for Text Discovery and Extraction}},
-  author = "Barbaresi, Adrien",
-  booktitle = "Proceedings of the Joint Conference of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing: System Demonstrations",
-  pages = "122--131",
-  publisher = "Association for Computational Linguistics",
-  url = "https://aclanthology.org/2021.acl-demo.15",
-  year = 2021,
-} 
-|
-| [FAISS](https://github.com/facebookresearch/faiss) | Semantic vector search |@article{johnson2019billion,
-  title={Billion-scale similarity search with {GPUs}},
-  author={Johnson, Jeff and Douze, Matthijs and J{\'e}gou, Herv{\'e}},
-  journal={IEEE Transactions on Big Data},
-  volume={7},
-  number={3},
-  pages={535--547},
-  year={2019},
-  publisher={IEEE}
-} 
-|
-| [rank-bm25](https://github.com/dorianbrown/rank_bm25) | Keyword retrieval | 
-@software{rank_bm25,
-  author = {Dorian Brown},
-  title = {{Rank-BM25: A Collection of BM25 Algorithms in Python}},
-  year = 2020,
-  publisher = {Zenodo},
-  doi = {10.5281/zenodo.4520057},
-  url = {https://doi.org/10.5281/zenodo.4520057}
-} 
-|
-| [sentence-transformers](https://www.sbert.net/) | Text embeddings | 
-@inproceedings{reimers-2019-sentence-bert,
-  title = "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
-  author = "Reimers, Nils and Gurevych, Iryna",
-  booktitle = "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing",
-  month = "11",
-  year = "2019",
-  publisher = "Association for Computational Linguistics",
-  url = "https://arxiv.org/abs/1908.10084",
-} 
-|
+| [trafilatura](https://github.com/adbar/trafilatura) | Web text extraction | @inproceedings{barbaresi-2021-trafilatura,<br> title = {{Trafilatura: A Web Scraping Library and Command-Line Tool for Text Discovery and Extraction}}, <br>  author = "Barbaresi, Adrien", <br>  booktitle = "Proceedings of the Joint Conference of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing: System Demonstrations", <br>  pages = "122--131",<br>  publisher = "Association for Computational Linguistics",<br>  url = "https://aclanthology.org/2021.acl-demo.15",<br> year = 2021, <br>} |
+| [FAISS](https://github.com/facebookresearch/faiss) | Semantic vector search | @article{johnson2019billion,<br> title={Billion-scale similarity search with {GPUs}},<br> author={Johnson, Jeff and Douze, Matthijs and J{\'e}gou, Herv{\'e}},<br> journal={IEEE Transactions on Big Data},<br> volume={7},<br> number={3},<br> pages={535--547}, <br> year={2019}, <br>  publisher={IEEE} <br> } |
+| [rank-bm25](https://github.com/dorianbrown/rank_bm25) | Keyword retrieval | @software{rank_bm25,<br> author = {Dorian Brown},<br> title = {{Rank-BM25: A Collection of BM25 Algorithms in Python}},<br> year = 2020,<br> publisher = {Zenodo},<br> doi = {10.5281/zenodo.4520057},<br> url = {https://doi.org/10.5281/zenodo.4520057} <br> } |
+| [sentence-transformers](https://www.sbert.net/) | Text embeddings | @inproceedings{reimers-2019-sentence-bert,<br> title = "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",<br> author = "Reimers, Nils and Gurevych, Iryna",<br> booktitle = "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing",<br> month = "11",<br> year = "2019",<br> publisher = "Association for Computational Linguistics",<br> url = "https://arxiv.org/abs/1908.10084",<br> } <br> |
 | [CrossEncoder](https://www.sbert.net/) | Retrieval reranking |  
 @inproceedings{reimers-2019-sentence-bert,
   title = "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
