@@ -262,6 +262,14 @@ Key packages: `faiss`, `sentence-transformers`, `gradio`, `rank-bm25`, `peft`, `
 | *"Where is Swem Library?"* | *(add real output)* |
 | *"What majors are in arts & sciences?"* | *(add real output)* |
 
+### Evaluation 
+
+We tested the chatbot on...
+
+### User Interface 
+
+Below is the Gradio chatbot interface.
+
 ---
 
 ## Team Contributions
