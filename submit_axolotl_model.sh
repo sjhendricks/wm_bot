@@ -8,8 +8,8 @@
 #SBATCH --mem=64G # how much physical memory (all by default)
 #SBATCH --mail-type=FAIL,BEGIN,END # when to email you
 #SBATCH --mail-user=YOUR EMAIL # who to email
-#SBATCH -o logs/axolotl/axolotl_%j.out #STDOUT to file (%j is jobID)
-#SBATCH -e logs/axolotl/axolotl_%j.err #STDERR to file (%j is jobID)
+#SBATCH -o logs/axolotl_%j.out #STDOUT to file (%j is jobID)
+#SBATCH -e logs/axolotl_%j.err #STDERR to file (%j is jobID)
 
 # 1. Read the first argument, default to 'mistral' if no argument is provided
 MODEL_NAME=${1:-mistral}
