@@ -4,104 +4,41 @@ import json
 import os
 import random
 import sys
+import re
 
 # --- HPC SAFETY SETTINGS ---
-# 1. Prevent tokenizer deadlocks
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-# 2. Force Offline Mode (Skip all internet checks)
 os.environ["HF_HUB_OFFLINE"] = "1"
 os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
 # --- CONFIGURATION ---
 MODEL_ID = "meta-llama/Meta-Llama-3-8B-Instruct"
-# Make sure these are ABSOLUTE paths to avoid confusion
 BASE_PATH = "/sciclone/scr10/gzdata440/wm_bot"
 INPUT_FILE = os.path.join(BASE_PATH, "data/chunks.json")
 OUTPUT_FILE = os.path.join(BASE_PATH, "data/fine_tuning/fine_tuning_data.jsonl")
 
-TOTAL_EXAMPLES = 3000
+# Target counts
 POS_COUNT = 2550  
 NEG_COUNT = 300   
 OUT_COUNT = 150   
 
 def get_llama3_prompt(system_content, user_content):
     return (
-        f"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n"
+	f"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n"
         f"{system_content}<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n"
         f"{user_content}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
     )
 
-def main():
-    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
-
-    # Use flush=True on all prints to see them in .out file IMMEDIATELY
-    print("--- STEP 1: Initializing Model on GPU ---", flush=True)
-    
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
-    
-    # We specify device 0 to avoid device_map auto-hangs
-    model = AutoModelForCausalLM.from_pretrained(
-        MODEL_ID,
-        torch_dtype=torch.bfloat16,
-        device_map={"":"cuda:0"} 
-    )
-
-    print(f"--- STEP 2: Loading Data from {INPUT_FILE} ---", flush=True)
-    try:
-        with open(INPUT_FILE, 'r', encoding='utf-8') as f:
-            all_chunks = json.load(f)
-    except Exception as e:
-        print(f"ERROR: {e}", flush=True)
-        sys.exit(1)
-    
-    random.shuffle(all_chunks)
-    pos_chunks = all_chunks[:POS_COUNT]
-    neg_chunks = all_chunks[POS_COUNT : POS_COUNT + NEG_COUNT]
-    distractor_pool = all_chunks[POS_COUNT + NEG_COUNT:] 
-    
-    print("--- STEP 3: Starting Generation Loop ---", flush=True)
-    
-    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f_out:
-        # Factual Loop
-        for i, chunk in enumerate(pos_chunks):
-            title = chunk.get('page_title', 'W&M Catalog')
-            section = chunk.get('section', 'Overview')
-            text = chunk.get('text', '')
-
-            # Neutralized System Message
-            sys_msg = (
-                "You are a William & Mary Academic Advisor. You are professional, grounded, and concise. "
-                "Your goal is to provide accurate responses based strictly on the provided reference material. "
-                "Do not use introductory AI filler (e.g., 'I'm happy to help', 'Sure thing'). "
-                "If the reference doesn't contain the answer, say so and suggest a relevant W&M office."
-            )
-
-            # Neutralized User Message (No "Catalog" references)
-            user_msg = (
-                f"SOURCE MATERIAL [{title} - {section}]:\n{text}\n\n"
-                "TASK:\n"
-                "1. Write a natural, conversational student question about a specific detail in the SOURCE MATERIAL.\n"
-                "2. Write a professional, concise Advisor response that answers the question accurately.\n\n"
-                "FORMAT:\n"
-                "STUDENT: [Question]\n"
-                "ADVISOR: [Response]"
-            )
-            response = generate(model, tokenizer, sys_msg, user_msg)
-            
-            human_query = f"Regarding {title}, what can you tell me about {section}?"
-            save_example(f_out, human_query, response)
-            
-            if i % 10 == 0: # Log more frequently (every 10) for debugging
-                print(f"  [+] Progress: {i}/{TOTAL_EXAMPLES} | Current: {title}", flush=True)
-
-        # Distractor Loop
-        print("--- PHASE 2: Negative Examples ---", flush=True)
-        # ... (rest of logic remains the same) ...
+def clean_metadata(title, section):
+    section = re.sub(r'\s\(Part\s\d+\)', '', section)
+    parts = re.split(r' - | \| | : ', title)
+    short_title = f"{parts[0]} ({parts[1]})" if len(parts) > 1 else parts[0]
+    return short_title, section
 
 def generate(model, tokenizer, sys, user):
+    """Standard generation without extra regex processing."""
     prompt = get_llama3_prompt(sys, user)
     inputs = tokenizer(prompt, return_tensors="pt").to("cuda:0")
-    
     with torch.no_grad():
         outputs = model.generate(
             **inputs, 
@@ -110,14 +47,126 @@ def generate(model, tokenizer, sys, user):
             do_sample=True,
             pad_token_id=tokenizer.eos_token_id
         )
-    
     full_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
     return full_text.split("assistant")[-1].strip()
 
 def save_example(file_obj, human_val, assistant_val):
     entry = {"conversations": [{"from": "human", "value": human_val}, {"from": "gpt", "value": assistant_val}]}
     file_obj.write(json.dumps(entry) + "\n")
-    file_obj.flush() # Forces the write to disk immediately
+    file_obj.flush()
+
+def main():
+    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+
+    print("--- STEP 1: Initializing Model on GPU ---", flush=True)
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_ID, torch_dtype=torch.bfloat16, device_map={"":"cuda:0"} 
+    )
+
+    print(f"--- STEP 2: Loading Data ---", flush=True)
+    with open(INPUT_FILE, 'r', encoding='utf-8') as f:
+        all_chunks = json.load(f)
+    
+    random.shuffle(all_chunks)
+    
+    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f_out:
+        
+        # --- PHASE 1: FACTUAL PAIRS ---
+        print("--- PHASE 1: Factual Pairs ---", flush=True)
+        for i in range(POS_COUNT):
+            chunk = all_chunks[i]
+            title, section = clean_metadata(chunk.get('page_title', ''), chunk.get('section', ''))
+            text = chunk.get('text', '')
+
+            success = False
+            retries = 0
+            MAX_RETRIES = 5 # Safety valve
+
+            while not success and retries < MAX_RETRIES:
+                sys_msg = "You are a William & Mary Academic Advisor. Be professional, grounded, and concise."
+                user_msg = (
+                    f"SOURCE MATERIAL [{title} - {section}]:\n{text}\n\n"
+                    "TASK: Write a natural student question and a professional Advisor response.\n"
+                    "FORMAT:\nSTUDENT: [Question]\nADVISOR: [Response]"
+                    "Output ONLY the above format without any additional commentary or text."
+                )
+                
+               	response = generate(model, tokenizer, sys_msg, user_msg)
+                
+               	if "ADVISOR:" in response:
+                    try:
+                        parts = response.split("ADVISOR:")
+                        student_q = parts[0].replace("STUDENT:", "").strip()
+                        advisor_a = parts[1].strip()
+                        if student_q and advisor_a:
+                            save_example(f_out, student_q, advisor_a)
+                            success = True
+                    except:
+                        pass
+                
+               	if not success:
+                    retries += 1
+                    # THIS IS THE KEY: See why it is failing
+                    print(f"  [!] Retry {retries}/{MAX_RETRIES} for index {i} (Topic: {title})", flush=True)
+
+            if i % 10 == 0: # Increased frequency for peace of mind
+                print(f"  [+] Completed index: {i}/{POS_COUNT} | Success: {success}", flush=True)
+
+        # --- PHASE 2: NEGATIVE EXAMPLES ---
+        print("\n--- PHASE 2: Negative Examples ---", flush=True)
+        offices = ["the Registrar", "the Dean of Students", "the Cohen Career Center", "Financial Aid", "the IT help desk"]
+        for i in range(NEG_COUNT):
+            success = False
+            while not success:
+                target = all_chunks[i]
+                distractor = all_chunks[-(i+1)]
+                title, _ = clean_metadata(target.get('page_title', ''), "")
+                pivot = "Swem Library" if "Swem" in title else random.choice(offices)
+
+                sys_msg = "You are a W&M Advisor. Be professional, direct, and concise."
+                user_msg = (
+                    f"TOPIC: {title}\nRECORDS AT HAND: {distractor.get('text', '')}\n\n"
+                    f"TASK: Generate a student question about the TOPIC. The Advisor response should state YOU DO NOT HAVE THAT INFO and suggest a relevant William & Mary Resource.\n"
+                    "FORMAT:\nSTUDENT: [Question]\nADVISOR: [Response]"
+                    "Output ONLY the above format without any additional commentary or text."
+                )
+                
+               	response = generate(model, tokenizer, sys_msg, user_msg)
+                if "ADVISOR:" in response:
+                    try:
+                        parts = response.split("ADVISOR:")
+                        save_example(f_out, parts[0].replace("STUDENT:", "").strip(), parts[1].strip())
+                        success = True
+                    except:
+                        continue
+
+        # --- PHASE 3: REFUSAL EXAMPLES ---
+        print("\n--- PHASE 3: Refusal Examples ---", flush=True)
+        topics = ["UVA admissions", "cooking recipes", "coding a game", "weather", "Super Bowl"]
+        for i in range(OUT_COUNT):
+            success = False
+            while not success:
+                topic = random.choice(topics)
+                sys_msg = "You are a W&M Advisor. Politely refuse non-W&M academic questions."
+                user_msg = (
+                    f"Generate a natural student question about {topic}.\n"
+                    "TASK: The Advisor MUST refuse this request in 1-2 sentences.\n"
+                    "FORMAT:\nSTUDENT: [Question]\nADVISOR: [Response]"
+                    "Output ONLY the above format without any additional commentary or text."
+                )
+                
+               	response = generate(model, tokenizer, sys_msg, user_msg)
+                if "ADVISOR:" in response:
+                    try:
+                        parts = response.split("ADVISOR:")
+                        save_example(f_out, parts[0].replace("STUDENT:", "").strip(), parts[1].strip())
+                        success = True
+                    except:
+                        continue
+
+    print(f"\n--- FINISHED: Exactly 3000 examples saved to {OUTPUT_FILE} ---")
 
 if __name__ == "__main__":
     main()
+
