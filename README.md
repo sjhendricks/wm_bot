@@ -281,218 +281,137 @@ Below is the gradio interface that can be run through the .ipynb
 
 ---
 
-## Key Dependencies & Citations
-
-| Tool | Purpose | Reference |
-|------|---------|-----------|
-| [trafilatura](https://github.com/adbar/trafilatura) | Web text extraction | @inproceedings{barbaresi-2021-trafilatura,<br> title = {{Trafilatura: A Web Scraping Library and Command-Line Tool for Text Discovery and Extraction}}, <br>  author = "Barbaresi, Adrien", <br>  booktitle = "Proceedings of the Joint Conference of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing: System Demonstrations", <br>  pages = "122--131",<br>  publisher = "Association for Computational Linguistics",<br>  url = "https://aclanthology.org/2021.acl-demo.15",<br> year = 2021, <br>} |
-| [FAISS](https://github.com/facebookresearch/faiss) | Semantic vector search | @article{johnson2019billion,<br> title={Billion-scale similarity search with {GPUs}},<br> author={Johnson, Jeff and Douze, Matthijs and J{\'e}gou, Herv{\'e}},<br> journal={IEEE Transactions on Big Data},<br> volume={7},<br> number={3},<br> pages={535--547}, <br> year={2019}, <br>  publisher={IEEE} <br> } |
-| [rank-bm25](https://github.com/dorianbrown/rank_bm25) | Keyword retrieval | @software{rank_bm25,<br> author = {Dorian Brown},<br> title = {{Rank-BM25: A Collection of BM25 Algorithms in Python}},<br> year = 2020,<br> publisher = {Zenodo},<br> doi = {10.5281/zenodo.4520057},<br> url = {https://doi.org/10.5281/zenodo.4520057} <br> } |
-| [sentence-transformers](https://www.sbert.net/) | Text embeddings | @inproceedings{reimers-2019-sentence-bert,<br> title = "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",<br> author = "Reimers, Nils and Gurevych, Iryna",<br> booktitle = "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing",<br> month = "11",<br> year = "2019",<br> publisher = "Association for Computational Linguistics",<br> url = "https://arxiv.org/abs/1908.10084",<br> } <br> |
-| [CrossEncoder](https://www.sbert.net/) | Retrieval reranking |  
-@inproceedings{reimers-2019-sentence-bert,
-  title = "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
-  author = "Reimers, Nils and Gurevych, Iryna",
-  booktitle = "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing",
-  month = "11",
-  year = "2019",
-  publisher = "Association for Computational Linguistics",
-  url = "https://arxiv.org/abs/1908.10084",
-} 
-|
-| [Axolotl](https://github.com/OpenAccess-AI-Collective/axolotl) | Fine-tuning framework |
- @software{axolotl,
-  title = {Axolotl: Open Source LLM Post-Training},
-  author = {{Axolotl maintainers and contributors}},
-  url = {https://github.com/axolotl-ai-cloud/axolotl},
-  license = {Apache-2.0},
-  year = {2023}
-} 
-|
-| [Pytorch](https://docs.pytorch.org/docs/2.5/index.html) | GPU capabilities for training | cff-version: 1.2.0
-message: If you use this software, please cite it as below.
-title: PyTorch
-authors:
-  - family-names: PyTorch Team
-url: https://pytorch.org
-preferred-citation:
-  type: conference-paper
-  title: "PyTorch 2: Faster Machine Learning Through Dynamic Python Bytecode Transformation and Graph Compilation"
-  authors:
-    - family-names: Ansel
-      given-names: Jason
-    - family-names: Yang
-      given-names: Edward
-    - family-names: He
-      given-names: Horace
-    - family-names: Gimelshein
-      given-names: Natalia
-    - family-names: Jain
-      given-names: Animesh
-    - family-names: Voznesensky
-      given-names: Michael
-    - family-names: Bao
-      given-names: Bin
-    - family-names: Bell
-      given-names: Peter
-    - family-names: Berard
-      given-names: David
-    - family-names: Burovski
-      given-names: Evgeni
-    - family-names: Chauhan
-      given-names: Geeta
-    - family-names: Chourdia
-      given-names: Anjali
-    - family-names: Constable
-      given-names: Will
-    - family-names: Desmaison
-      given-names: Alban
-    - family-names: DeVito
-      given-names: Zachary
-    - family-names: Ellison
-      given-names: Elias
-    - family-names: Feng
-      given-names: Will
-    - family-names: Gong
-      given-names: Jiong
-    - family-names: Gschwind
-      given-names: Michael
-    - family-names: Hirsh
-      given-names: Brian
-    - family-names: Huang
-      given-names: Sherlock
-    - family-names: Kalambarkar
-      given-names: Kshiteej
-    - family-names: Kirsch
-      given-names: Laurent
-    - family-names: Lazos
-      given-names: Michael
-    - family-names: Lezcano
-      given-names: Mario
-    - family-names: Liang
-      given-names: Yanbo
-    - family-names: Liang
-      given-names: Jason
-    - family-names: Lu
-      given-names: Yinghai
-    - family-names: Luk
-      given-names: CK
-    - family-names: Maher
-      given-names: Bert
-    - family-names: Pan
-      given-names: Yunjie
-    - family-names: Puhrsch
-      given-names: Christian
-    - family-names: Reso
-      given-names: Matthias
-    - family-names: Saroufim
-      given-names: Mark
-    - family-names: Siraichi
-      given-names: Marcos Yukio
-    - family-names: Suk
-      given-names: Helen
-    - family-names: Suo
-      given-names: Michael
-    - family-names: Tillet
-      given-names: Phil
-    - family-names: Wang
-      given-names: Eikan
-    - family-names: Wang
-      given-names: Xiaodong
-    - family-names: Wen
-      given-names: William
-    - family-names: Zhang
-      given-names: Shunting
-    - family-names: Zhao
-      given-names: Xu
-    - family-names: Zhou
-      given-names: Keren
-    - family-names: Zou
-      given-names: Richard
-    - family-names: Mathews
-      given-names: Ajit
-    - family-names: Chanan
-      given-names: Gregory
-    - family-names: Wu
-      given-names: Peng
-    - family-names: Chintala
-      given-names: Soumith
-  collection-title: "29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2 (ASPLOS '24)"
-  collection-type: proceedings
-  month: 4
-  year: 2024
-  publisher:
-    name: ACM
-  doi: "10.1145/3620665.3640366"
-  url: "https://docs.pytorch.org/assets/pytorch2-2.pdf"
-|
-| [PEFT](https://github.com/huggingface/peft) | QLoRA adapter loading | 
-@Misc{peft,
-  title =        {{PEFT}: State-of-the-art Parameter-Efficient Fine-Tuning methods},
-  author =       {Sourab Mangrulkar and Sylvain Gugger and Lysandre Debut and Younes Belkada and Sayak Paul and Benjamin Bossan and Marian Tietz},
-  howpublished = {\url{https://github.com/huggingface/peft}},
-  year =         {2022}
-} 
-|
-| [Beautifulsoup4](https://pypi.org/project/beautifulsoup4/) | Data Scraping |
-@article{richardson2007beautiful,
-  title={Beautiful soup documentation},
-  author={Richardson, Leonard},
-  journal={April},
-  year={2007}
-}
-|
-| [Gradio](https://www.gradio.app/) | Chatbot UI | 
-cff-version: 1.2.0
-message: Please cite this project using these metadata.
-title: "Gradio: Hassle-free sharing and testing of ML models in the wild"
-abstract: >-
-  Accessibility is a major challenge of machine learning (ML).
-  Typical ML models are built by specialists and require
-  specialized hardware/software as well as ML experience to
-  validate. This makes it challenging for non-technical
-  collaborators and endpoint users (e.g. physicians) to easily
-  provide feedback on model development and to gain trust in
-  ML. The accessibility challenge also makes collaboration
-  more difficult and limits the ML researcher's exposure to
-  realistic data and scenarios that occur in the wild. To
-  improve accessibility and facilitate collaboration, we
-  developed an open-source Python package, Gradio, which
-  allows researchers to rapidly generate a visual interface
-  for their ML models. Gradio makes accessing any ML model as
-  easy as sharing a URL. Our development of Gradio is informed
-  by interviews with a number of machine learning researchers
-  who participate in interdisciplinary collaborations. Their
-  feedback identified that Gradio should support a variety of
-  interfaces and frameworks, allow for easy sharing of the
-  interface, allow for input manipulation and interactive
-  inference by the domain expert, as well as allow embedding
-  the interface in iPython notebooks. We developed these
-  features and carried out a case study to understand Gradio's
-  usefulness and usability in the setting of a machine
-  learning collaboration between a researcher and a
-  cardiologist.
-authors:
-  - family-names: Abid
-    given-names: Abubakar
-  - family-names: Abdalla
-    given-names: Ali
-  - family-names: Abid
-    given-names: Ali
-  - family-names: Khan
-    given-names: Dawood
-  - family-names: Alfozan
-    given-names: Abdulrahman
-  - family-names: Zou
-    given-names: James
-doi: 10.48550/arXiv.1906.02569
-date-released: 2019-06-06
-url: https://arxiv.org/abs/1906.02569
-|
+## Known Limitations
+- Scraping is scoped to selected W&M sites; not a full site crawl
+- Benchmarking is currently manual
 
 ---
 
-## Known Limitations
+## Key Dependencies
 
-- Scraping is scoped to selected W&M sites; not a full site crawl
-- Benchmarking is currently manual
+| Tool | Purpose | Citation |
+|------|---------|----------|
+| trafilatura | Web text extraction | [Barbaresi (2021)](#trafilatura) |
+| FAISS | Semantic vector search | [Johnson et al. (2019)](#faiss) |
+| rank-bm25 | Keyword retrieval | [Brown (2020)](#rank-bm25) |
+| sentence-transformers | Text embeddings | [Reimers & Gurevych (2019)](#sentence-transformers) |
+| CrossEncoder | Retrieval reranking | [Reimers & Gurevych (2019)](#crossencoder) |
+| Axolotl | Fine-tuning framework | [Axolotl (2023)](#axolotl) |
+| PyTorch | GPU training | [Ansel et al. (2024)](#pytorch) |
+| PEFT | Parameter-efficient tuning | [Mangrulkar et al. (2022)](#peft) |
+| BeautifulSoup4 | Data scraping | [Richardson (2007)](#beautifulsoup4) |
+| Gradio | Chatbot UI | [Abid et al. (2019)](#gradio) |
+
+---
+
+## References
+
+### Trafilatura
+<a id="trafilatura"></a>
+```bibtex
+@inproceedings{barbaresi-2021-trafilatura,
+  title = {Trafilatura: A Web Scraping Library and Command-Line Tool for Text Discovery and Extraction},
+  author = {Barbaresi, Adrien},
+  booktitle = {Proceedings of the ACL System Demonstrations},
+  pages = {122--131},
+  year = {2021},
+  publisher = {Association for Computational Linguistics},
+  url = {https://aclanthology.org/2021.acl-demo.15}
+}
+
+### FAISS
+<a id="faiss"></a>
+@article{johnson2019billion,
+  title = {Billion-scale similarity search with GPUs},
+  author = {Johnson, Jeff and Douze, Matthijs and Jégou, Hervé},
+  journal = {IEEE Transactions on Big Data},
+  volume = {7},
+  number = {3},
+  pages = {535--547},
+  year = {2019},
+  publisher = {IEEE}
+}
+
+### Rank-BM25
+<a id="rank-bm25"></a>
+@software{rank_bm25,
+  author = {Dorian Brown},
+  title = {Rank-BM25: A Collection of BM25 Algorithms in Python},
+  year = {2020},
+  publisher = {Zenodo},
+  doi = {10.5281/zenodo.4520057},
+  url = {https://doi.org/10.5281/zenodo.4520057}
+}
+
+### Sentence-Transformers
+<a id="sentence-transformers"></a>
+@inproceedings{reimers-2019-sentence-bert,
+  title = {Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks},
+  author = {Reimers, Nils and Gurevych, Iryna},
+  booktitle = {Proceedings of EMNLP},
+  year = {2019},
+  publisher = {Association for Computational Linguistics},
+  url = {https://arxiv.org/abs/1908.10084}
+}
+
+### CrossEncoder
+<a id="crossencoder"></a>
+@inproceedings{reimers-2019-sentence-bert,
+  title = {Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks},
+  author = {Reimers, Nils and Gurevych, Iryna},
+  booktitle = {Proceedings of EMNLP},
+  year = {2019},
+  publisher = {Association for Computational Linguistics},
+  url = {https://arxiv.org/abs/1908.10084}
+}
+
+### Axolotl
+<a id="axolotl"></a>
+@software{axolotl,
+  title = {Axolotl: Open Source LLM Post-Training},
+  author = {Axolotl maintainers and contributors},
+  year = {2023},
+  url = {https://github.com/axolotl-ai-cloud/axolotl},
+  license = {Apache-2.0}
+}
+
+### PyTorch
+<a id="pytorch"></a>
+@inproceedings{ansel2024pytorch2,
+  title = {PyTorch 2: Faster Machine Learning Through Dynamic Python Bytecode Transformation and Graph Compilation},
+  author = {Ansel, Jason and Yang, Edward and He, Horace and others},
+  booktitle = {ASPLOS '24},
+  year = {2024},
+  publisher = {ACM},
+  doi = {10.1145/3620665.3640366},
+  url = {https://docs.pytorch.org/assets/pytorch2-2.pdf}
+}
+
+### PEFT
+<a id="peft"></a>
+@misc{peft,
+  title = {PEFT: Parameter-Efficient Fine-Tuning methods},
+  author = {Mangrulkar, Sourab and Gugger, Sylvain and others},
+  year = {2022},
+  howpublished = {\url{https://github.com/huggingface/peft}}
+}
+
+### BeautifulSoup4
+<a id="beautifulsoup4"></a>
+@article{richardson2007beautiful,
+  title = {Beautiful Soup Documentation},
+  author = {Richardson, Leonard},
+  journal = {April},
+  year = {2007}
+}
+
+### Gradio
+<a id="gradio"></a>
+@article{abid2019gradio,
+  title = {Gradio: Hassle-free sharing and testing of ML models in the wild},
+  author = {Abid, Abubakar and Abdalla, Ali and Abid, Ali and others},
+  year = {2019},
+  doi = {10.48550/arXiv.1906.02569},
+  url = {https://arxiv.org/abs/1906.02569}
+}
+
