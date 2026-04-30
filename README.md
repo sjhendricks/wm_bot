@@ -174,13 +174,33 @@ Scraped content is organized by site under `data/raw/`:
 
 ## How to Run
 
-### Local
+You *must* have a Hugging Face read token. Find out more about access tokens [here](https://huggingface.co/docs/hub/en/security-tokens)
+
+### HPC (SLURM)
+
+```bash
+# Scraping (with arguments url, domain, folder name)
+sbatch scripts/submit_scraper.sh {URL} {DOMAIN} {FOLDER NAME}
+# Cleaning/formatting (run stages together)
+bash master_pipeline.sh  # runs scripts 02–06
+
+# Fine-tuning (choose a model, all require a HF token, mistral is the only ungated one). Be sure to edit the following file and insert your token before running.
+sbatch scripts/submit_axolotl_model.sh mistral
+
+# Launch chatbot interactively, replace [MODEL NAME] with model option of choice (gemma, llama, mistral)
+conda activate wmbot-stable
+srun -p batch --gres=gpu:1 --mem=64G -t 01:00:00 --pty bash
+python bot_test_resources/[MODEL NAME]_bot.py
+```
+
+### Local (if you have access to an A40 GPU)
 
 ```bash
 cd wm_bot
 
 # Create environments
 bash scripts/00_create_scraping_env.sh
+bash scripts/00_create_llm_env.sh
 bash scripts/00_create_llm_env.sh
 
 # Steps 1–4: Scrape + process data
@@ -201,26 +221,26 @@ python scripts/07_fine_tuning.py
 python scripts/08_conversation_format.py
 
 # Step 9: Launch chatbot
-python scripts/09_app.py
-conda deactivate
+conda activate wmbot-stable
+srun -p batch --gres=gpu:1 --mem=64G -t 01:00:00 --pty bash
+python bot_test_resources/[MODEL NAME]_bot.py
 ```
 
 ### HPC (SLURM)
 
 ```bash
-# Scraping
-sbatch scripts/submit_scraper.sh
-
+# Scraping (with arguments url, domain, folder name)
+sbatch scripts/submit_scraper.sh {URL} {DOMAIN} {FOLDER NAME}
 # Cleaning/formatting (run stages together)
-bash scripts/cleaning_pipeline_pt1.sh
-bash scripts/cleaning_pipeline_pt2.sh   # runs scripts 03–06
+bash master_pipeline.sh  # runs scripts 02–06
 
-# Fine-tuning (choose a model)
+# Fine-tuning (choose a model, all require a HF token, mistral is the only ungated one). Be sure to edit the following file and insert your token before running.
 sbatch scripts/submit_axolotl_model.sh mistral
 
-# Launch chatbot interactively
+# Launch chatbot interactively, replace [MODEL NAME] with model option of choice (gemma, llama, mistral)
 conda activate llm-env
-python scripts/09_app.py
+srun -p batch --gres=gpu:1 --mem=64G -t 01:00:00 --pty bash
+python bot_test_resources/[MODEL NAME]_bot.py
 ```
 
 ---
@@ -268,7 +288,7 @@ We tested the chatbot on...
 
 ### User Interface 
 
-Below is the Gradio chatbot interface.
+Below is the gradio interface that can be run through the .ipynb
 
 ---
 

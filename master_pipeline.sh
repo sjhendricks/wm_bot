@@ -32,16 +32,16 @@ for dir_path in /sciclone/scr10/gzdata440/wm_bot/data/raw/*; do
 done
 
 echo "🔹 Step 1: Cleaning"
-python /sciclone/scr10/gzdata440/wm_bot/scripts/clean2.py
+python /sciclone/scr10/gzdata440/wm_bot/scripts/03_clean.py
 
 echo "🔹 Step 2: Chunking"
-python /sciclone/scr10/gzdata440/wm_bot/scripts/chunk_data2.py
+python /sciclone/scr10/gzdata440/wm_bot/scripts/04_chunk.py
 
 echo "🔹 Step 3: Embedding + FAISS"
-python /sciclone/scr10/gzdata440/wm_bot/scripts/embed_faiss.py
+python /sciclone/scr10/gzdata440/wm_bot/scripts/05_embed_faiss.py
 
 echo "🔹 Building BM25..."
-python /sciclone/scr10/gzdata440/wm_bot/scripts/build_bm25.py
+python /sciclone/scr10/gzdata440/wm_bot/scripts/06_build_bm25.py
 
 echo "✅ Pipeline Complete!"
 
