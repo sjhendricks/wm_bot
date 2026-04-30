@@ -7,8 +7,8 @@
 #SBATCH --mem=128G # how much physical memory (all by default)
 #SBATCH --mail-type=FAIL,BEGIN,END # when to email you
 #SBATCH --mail-user=hrsweazey@wm.edu # who to email
-#SBATCH -o scraping_%j.out #STDOUT to file (%j is jobID)
-#SBATCH -e scraping_%j.err #STDERR to file (%j is jobID)
+#SBATCH -o logs/scraping/scraping_%j.out #STDOUT to file (%j is jobID)
+#SBATCH -e logs/scraping/scraping_%j.err #STDERR to file (%j is jobID)
 
 module load miniforge3
 source "$(conda info --base)/etc/profile.d/conda.sh"

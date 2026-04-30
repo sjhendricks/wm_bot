@@ -18,5 +18,7 @@ which pip #should result in: ~/.conda/envs/llm-env/bin/pip
 ~/.conda/envs/llm-env/bin/pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 ~/.conda/envs/llm-env/bin/pip install --no-build-isolation axolotl
 
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
 # deactivate
 conda deactivate

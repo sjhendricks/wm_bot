@@ -213,7 +213,7 @@ data_clean
 data_raw
 data
 logs
-
-scraping_297213.err
-scraping_297213.out
-
+scripts/submit_finetuning.sh
+scripts/sumbit_axolotl.sh
+examples
+scripts/09_app.py

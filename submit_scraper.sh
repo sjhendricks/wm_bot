@@ -6,13 +6,17 @@
 #SBATCH --time=3-00:00:00 # d-hh:mm:ss or just No. of minutes
 #SBATCH --mem=128G # how much physical memory (all by default)
 #SBATCH --mail-type=FAIL,BEGIN,END # when to email you
-#SBATCH --mail-user=pgupta03@wm.edu # who to email
-#SBATCH -o scraping_%j.out #STDOUT to file (%j is jobID)
-#SBATCH -e scraping_%j.err #STDERR to file (%j is jobID)
+#SBATCH --mail-user=hrsweazey@wm.edu # who to email
+#SBATCH -o logs/scraping/scraping_%j.out #STDOUT to file (%j is jobID)
+#SBATCH -e logs/scraping/scraping_%j.err #STDERR to file (%j is jobID)
+
+export start=$1
+export domain=$2
+export folder=$3
 
 module load miniforge3
 source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate wmbot-env
 
-python /sciclone/scr10/gzdata440/wm_bot/scripts/scraper2.py
+python /sciclone/scr10/gzdata440/wm_bot/scripts/01_scraper.py
 conda deactivate

@@ -1,0 +1,65 @@
+base_model: google/gemma-2-9b-it
+model_type: AutoModelForCausalLM
+tokenizer_type: AutoTokenizer
+
+load_in_4bit: true
+bnb_4bit_compute_dtype: bfloat16
+bnb_4bit_use_double_quant: true
+bnb_4bit_quant_type: nf4
+
+adapter: lora
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.05
+
+lora_target_modules:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+  - gate_proj
+  - up_proj
+  - down_proj
+
+datasets:
+  - path: "bot_test_resources/gemma/gemma_formatted_fine_tuning_data.jsonl"
+    type: chat_template
+    chat_template: tokenizer_default # This automatically uses Gemma's native tags
+
+# Renamed to avoid using Mistral's tokenized data!
+dataset_prepared_path: bot_test_resources/gemma/gemma_prepared
+val_set_size: 0.08
+
+# New output directory
+output_dir: bot_test_resources/gemma/qlora-out
+
+sequence_len: 2048
+sample_packing: true
+eval_sample_packing: false
+pad_to_sequence_len: true
+
+# Dropped to 1 because 9B parameters require more VRAM
+micro_batch_size: 1
+
+# Change this to true ONLY if you successfully installed flash-attn earlier
+flash_attention: false 
+
+gradient_checkpointing: true
+gradient_accumulation_steps: 8
+
+num_epochs: 3
+learning_rate: 5e-5
+
+optimizer: paged_adamw_8bit
+lr_scheduler: cosine
+warmup_ratio: 0.1
+
+train_on_inputs: false
+group_by_length: true
+max_grad_norm: 1.0
+
+bf16: true
+fp16: false
+
+logging_steps: 10
+save_steps: 500

@@ -1,0 +1,63 @@
+base_model: meta-llama/Meta-Llama-3-8B-Instruct
+model_type: LlamaForCausalLM
+tokenizer_type: AutoTokenizer
+
+load_in_4bit: true
+bnb_4bit_compute_dtype: bfloat16
+bnb_4bit_use_double_quant: true
+bnb_4bit_quant_type: nf4
+
+adapter: lora
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.05
+
+lora_target_modules:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+  - gate_proj
+  - up_proj
+  - down_proj
+
+datasets:
+  - path: data/fine_tuning/formatted_fine_tuning_data.jsonl
+    type: chat_template
+    chat_template: chatml
+
+dataset_prepared_path: bot_test_resources/llama/llama_prepared
+val_set_size: 0.08
+
+output_dir: data/fine_tuning/qlora-out
+
+sequence_len: 2048
+sample_packing: true
+pad_to_sequence_len: true
+
+gradient_checkpointing: true
+micro_batch_size: 1
+gradient_accumulation_steps: 8
+
+num_epochs: 3
+
+learning_rate: 5e-5
+
+optimizer: paged_adamw_8bit
+lr_scheduler: cosine
+
+warmup_ratio: 0.1
+
+train_on_inputs: false
+group_by_length: true
+
+max_grad_norm: 1.0
+
+bf16: true
+fp16: false
+
+logging_steps: 10
+save_steps: 500
+
+special_tokens:
+  pad_token: <|end_of_text|> 

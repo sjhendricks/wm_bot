@@ -4,7 +4,7 @@ import os
 
 # --- CONFIGURATION ---
 INPUT_FILE = "data/cleaned.json"
-OUTPUT_FILE = "data/chunks.json"
+OUTPUT_FILE = "data/rag/chunks.json"
 
 # RAG Best Practices:
 # 2000 chars is roughly 400-500 tokens, perfect for Llama-3-8B.
