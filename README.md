@@ -268,7 +268,7 @@ We tested the chatbot on...
 
 Below is the gradio interface that can be run through the .ipynb
 
----
+![Screenshot from the Gradio Interface](metadata/Demo.jpeg)
 
 ## Team Contributions
 
