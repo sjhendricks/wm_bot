@@ -256,9 +256,9 @@ Key packages: `faiss`, `sentence-transformers`, `gradio`, `rank-bm25`, `peft`, `
 
 | User Query | Bot Response |
 |------------|--------------|
-| *"What is the acceptance rate at W&M?"* | *(add real output)* |
-| *"Where is Swem Library?"* | *(add real output)* |
-| *"What majors are in arts & sciences?"* | *(add real output)* |
+| *"What majors are in arts & sciences?"* | *"At William & Mary, the Arts & Sciences majors include but are not limited to: Anthropology, Biology, Chemistry, Classical Studies, Computer Science, Economics, English, Environmental Science, Geology, History, Mathematics, Physics, Psychology, Sociology, and Theatre, Speech, and Dance. However, this is not an exhaustive list. I would recommend visiting the W&M website or contacting the appropriate department or faculty member for more information on majors in Arts & Sciences."* |
+| *"What resources can I use at the Swem Library?"* | *"The Swem Library offers a variety of resources to help you with your academic journey. You can access databases, e-books, journals, and newspapers, as well as physical books, DVDs, and more. Additionally, the library has a number of study spaces, including individual study rooms, group study rooms, and quiet study areas. You can also visit the library's website to see what events are happening, such as workshops and lectures. For more information, you can visit the library's website or speak with a librarian."* |
+| *"What degrees can I pursue at the Business School at W&M?"* | *"The Business School, also known as the Raymond A. Mason School of Business, offers undergraduate degrees in Business Administration. Specifically, you can pursue a Business Administration degree with majors in Accounting, Business Analytics, Business Management, Economics, Entrepreneurship, International Business, Marketing, and Real Estate. Additionally, the Business School offers a joint degree program with the School of Law, which allows students to earn both a Juris Doctor (J.D.) and a Master of Business Administration (M.B.A.) in approximately six years. For more information, I recommend visiting the Business School's website or reaching out to an academic advisor."* |
 
 ### Evaluation 
 
