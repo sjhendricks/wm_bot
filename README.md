@@ -96,6 +96,7 @@ wm_bot/
 |--------|-------------|
 | `gemma_conversation_format.py` | must be run when using gemma model to account for specific formatting |
 | `bot_ui.ipynb` | downloadable collab file to run bot locally **REQUIRES HF TOKEN AND T4 RUNTIME** |
+| `untuned_{MODEL NAME}_bot.py` | scripts to run bot using base model, used for debugging, comparison, and evaluation |
 
 ---
 
