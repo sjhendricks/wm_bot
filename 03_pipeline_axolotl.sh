@@ -26,11 +26,11 @@ MODEL_NAME=${1:-mistral}
 # 2. Validate the input and assign the corresponding YAML config
 case "$MODEL_NAME" in
     llama)
-        CONFIG_FILE="bot_test_resources/llama/axolotl_llama.yaml"
+        CONFIG_FILE="./bot_test_resources/llama/axolotl_llama.yaml"
         ;;
     gemma)
-        CONFIG_FILE="bot_test_resources/gemma/axolotl_gemma.yaml"
-        python /sciclone/scr10/gzdata440/wm_bot/bot_test_resources/gemma/gemma_conversation_format.py
+        CONFIG_FILE="./bot_test_resources/gemma/axolotl_gemma.yaml"
+        python ./bot_test_resources/gemma/gemma_conversation_format.py
         ;;
     mistral)
         CONFIG_FILE="bot_test_resources/mistral/axolotl_mistral.yaml"

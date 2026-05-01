@@ -19,19 +19,41 @@ The pipeline supports fine-tuning and inference with three interchangeable model
 
 ```
 wm_bot/
-├── scripts/                    # All pipeline scripts
+├── scripts/                    # Pipeline scripts
 ├── envs/
-│   ├── wmbot-env_full.yaml     # Full scraping environment spec
-│   ├── wmbot-stable.yaml       # Stable scraping environment spec
-│   └── llm-env_new.yaml        # LLM/retrieval environment spec
+│   ├── archive/
+│   ├── wmbot-env_full.yaml
+│   ├── wmbot-stable.yaml
+│   └── llm-env_new.yaml
 ├── data/
-│   ├── raw/                    # Raw scraped files (organized by site)
-│   ├── clean/                  # Cleaned and formatted text
-│   ├── rag/                    # chunks.json, faiss.index, bm25.pkl
-│   └── fine_tuning/            # Training data + qlora-out/ adapters
-├── metadata/                   # Seed URLs and tracking files
+│   ├── raw/                    # Scraped files by site
+│   ├── clean/                  # cleaned.json + any formatted text
+│   ├── embeddings/             # embeddings
+│   ├── fine_tuning/            # fine-tuning.jsonl + formatted-fine-tuning.jsonl
+│   └── rag/                    # chunks.json, faiss.index, bm25.pkl
+├── bot_test_resources/                     
+│   ├── gemma/
+│   │   ├── axolotl_gemma.yaml
+│   │   ├── gemma_prepared/
+│   │   ├── qlora-out/
+│   │   └── gemma_conversation_format.py
+│   ├── llama/
+│   │   ├── axolotl_llama.yaml
+│   │   ├── llama_prepared/
+│   │   └── qlora-out/
+│   └── mistral/
+│       ├── axolotl_mini.yaml
+│       ├── mistral_prepared/
+│       └── qlora-out/
+├── 00_pipeline_scraping.sh/ 
+├── 01_pipeline_cleaning.sh/ 
+├── 02_pipeline_tuning.sh/ 
+├── 03_pipeline_axolotl.sh/ 
+├── metadata/                   # Seed URLs
 ├── logs/                       # Run logs and error logs
+├── bot_ui.ipynb
 └── README.md
+
 ```
 ---
 
@@ -44,12 +66,12 @@ wm_bot/
 | `01_scraper.py` | scrapes data from different sites (listed in metadata) |
 | `02_format_files.py` | uses trifilatura to clean html extras from sites |
 | `03_clean.py` | cleans the data |
-| `04_chunk_data.py` | chunks the data |
+| `04_chunk.py` | chunks the data |
 | `05_embed_faiss.py` | FAISS embeddings|
 | `06_build_bm25.py` | builds BM25 for retrieval |
 | `07_fine_tuning.py` | fine-tunes |
-| `08_conversation_format.py` | formats jsonl for input to axolotl |
-| `09_app.py` | full RAG chatbot: retrieval + LLM generation + Gradio UI | 
+| `08_conversation_format.py` | formats jsonl for input to axolotl | 
+| `08_wm_bot_rag.py` | RAG chatbot | 
 
 ### Environment Setup
 
@@ -63,20 +85,17 @@ wm_bot/
 
 | Script | Description | 
 |--------|-------------|
-| `submit_scraper.sh` | submits scraping job |
-| `submit_cleaner.sh` | submits formatting job |
-| `submit_reformat.sh` | submits conversation formatting job |
-| `submit_axolotl_model.sh` | submits fine-tuning with selectable model (see Model Selection) |
-| `submit_retrieve.sh` | submits retrieval job |
+| `00_pipeline_scraping.sh` | submits scraping job |
+| `01_pipeline_cleaning.sh` | submits formatting and indexing job |
+| `02_pipeline_tuning.sh` | submits fine-tuning dataset job **REQUIRES HF TOKEN** |
+| `03_pipeline_axolotl.sh` | submits fine-tuning with selectable model (see Model Selection) **REQUIRES HF TOKEN** |
 
 ### Supporting Scripts
 
 | Script | Description |
 |--------|-------------|
-| `cleaning_pipeline_pt1.sh` | allows filename changes before cleaning |
-| `cleaning_pipeline_pt2.sh` | runs scripts 03–06 as a pipeline |
-| `master_pipeline.sh` | end-to-end pipeline runner |
-| `wm_bot_rag.py` | RAG pipeline module |
+| `gemma_conversation_format.py` | must be run when using gemma model to account for specific formatting |
+| `bot_ui.ipynb` | downloadable collab file to run bot locally **REQUIRES HF TOKEN AND T4 RUNTIME** |
 
 ---
 
@@ -86,18 +105,18 @@ wm_bot/
 flowchart TD
 
     %% ===== DATA PIPELINE =====
-    A["Scrape<br/>01_scraper.py"] --> 
-    B["Format<br/>02_format_files.py"] --> 
-    C["Clean<br/>03_clean.py"] --> 
-    D["Chunk<br/>04_chunk.py"]
+    A["Scrape<br/>00_pipeline_scraping.sh<br/>(01_scraper.py)"] --> 
+    B["Format<br/>01_pipeline_cleaning.sh<br/>(02_format_files.py)"] --> 
+    C["Clean<br/>01_pipeline_cleaning.sh<br/>(03_clean.py)"] --> 
+    D["Chunk<br/>01_pipeline_cleaning.sh<br/>(04_chunk.py)"]
 
     %% ===== RETRIEVAL INDEX =====
-    D --> E["Embed + Index<br/>FAISS / BM25<br/>05_embed_faiss.py + 06_build_bm25.py"]
+    D --> E["Embed + Index<br/>FAISS / BM25<br/>02_pipeline_tuning.sh<br/>(05_embed_faiss.py + 06_build_bm25.py)"]
 
     %% ===== TRAINING =====
     D --> L["Create Training Data"]
-    L --> M["Fine-tuning Preparations<br/>07_fine_tuning.py"]
-    M --> N["Axolotl Fine-Tuning<br/>QLoRA / DPO<br/> placeholder"]
+    L --> M["Fine-tuning Preparations<br/>02_pipeline_tuning.sh<br/>(07_fine_tuning.py)"]
+    M --> N["Axolotl Fine-Tuning<br/>LoRA<br/>03_pipeline_axolotl.sh "]
 
     %% ===== INFERENCE =====
     G[User Query] --> H[Retriever]
@@ -139,16 +158,18 @@ sbatch scripts/submit_axolotl_model.sh mistral  # Mistral (default)
 | Supported LLMs | Llama 3 8B Instruct, Gemma, Mistral |
 | Default model | Mistral |
 | Fine-tuning method | QLoRA via Axolotl |
-| Adapter path | `data/fine_tuning/qlora-out/` |
+| Adapter path | `bot_test_resources/{MODEL NAME}/qlora-out/` |
 | Embedding model | `sentence-transformers/all-MiniLM-L6-v2` |
 | Reranker | `cross-encoder/ms-marco-MiniLM-L-6-v2` |
-| UI | Gradio |
+| UI/Gradio | `{MODEL NAME}_bot.py` or `Google Collab Notebook` |
 
-System prompt: *"You are a helpful William and Mary Advisor. Be concise and professional."*
+System prompt: *"You are a professional William & Mary Academic Advisor. Your sole purpose is to assists students with W&M-related inquiries. If a student asks a question that is unrelated to William & Mary, you must politely decline to answer and offer to help them with their academic journey instead. Do not provide general knowledge or instructions outside of this scope."*
 
 ---
 
 ## Data Sources
+
+Our dataset was scraped from 14 sources spanning W&M's official web presence, affiliated institutions, and the surrounding Williamsburg community. This includes the main W&M site, course catalog, library, law school, Mason School of Business, CDSP, VIMS, and ScholarWorks, as well as campus life sources like the Flat Hat student newspaper, dining, and recreation. We also incorporated content from Colonial Williamsburg and Visit Williamsburg to provide broader local context.
 
 Scraped content is organized by site under `data/raw/`:
 
@@ -171,15 +192,49 @@ Scraped content is organized by site under `data/raw/`:
 
 ---
 
-### Local
+## How to Run
+
+It is strongly encouraged to run the bot using the `bot_ui.ipynb` file in Google Collab, utilizing a T4 runtime. The weights and data have been uploaded to a Hugging Face Space and are accessible from there. All you have to do is put your Hugging Face read token in the Collab secrets as HF_TOKEN. 
+
+If you want to run the process on your own data, continue on reading this section. The whole process may take up to **15 hours** and requires special access to the **Meta-Llama-3-8B-Instruct Model**. If you do not have access, you *must* run the bot through the script `bot_ui.ipynb`.
+
+### HPC (SLURM)
+
+```bash
+# Set up all 3 environments
+bash 00_pipeline_envs.sh
+
+# Scraping (takes metadata from data/metadata/metadata.csv)
+sbatch 00_pipeline_scraping.sh
+
+# Cleaning/formatting (run stages together)
+sbatch 01_pipeline_cleaning.sh  # runs scripts 02–06
+
+# Fine-tuning
+sbatch 02_pipeline_tuning.sh
+
+# Training via axolotl
+sbatch 03_pipeline_axolotl.sh
+
+# Launch chatbot interactively, replace {MODEL NAME} with model option of choice (gemma, llama, mistral). Mistral is the only model that does not require special access.
+
+srun -p batch --gres=gpu:1 --mem=64G -t 01:00:00 --pty bash
+
+# When connected to a node
+module load miniforge3
+module load cuda
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate wmbot-stable
+python bot_test_resources/{MODEL NAME}_bot.py
+```
+
+### What Happens in the HPC Pipeline
 
 ```bash
 cd wm_bot
 
 # Create environments
-bash scripts/00_create_scraping_env.sh
-bash scripts/00_create_llm_env.sh
-bash scripts/00_create_llm_env.sh
+bash scripts/00_pipeline_envs.sh
 
 # Steps 1–4: Scrape + process data
 conda activate wmbot-env
@@ -187,36 +242,20 @@ python scripts/01_scraper.py
 python scripts/02_format_files.py
 python scripts/03_clean.py
 python scripts/04_chunk.py
-conda deactivate
 
 # Steps 5–6: Build retrieval indexes
-conda activate llm-env
 python scripts/05_embed_faiss.py
 python scripts/06_build_bm25.py
+conda deactivate
 
 # Steps 7–8: Prepare fine-tuning data
+conda activate llm-env
 python scripts/07_fine_tuning.py
 python scripts/08_conversation_format.py
+conda deactivate
 
 # Step 9: Launch chatbot
 conda activate wmbot-stable
-srun -p batch --gres=gpu:1 --mem=64G -t 01:00:00 --pty bash
-python bot_test_resources/[MODEL NAME]_bot.py
-```
-
-### HPC (SLURM)
-
-```bash
-# Scraping (with arguments url, domain, folder name)
-sbatch scripts/submit_scraper.sh {URL} {DOMAIN} {FOLDER NAME}
-# Cleaning/formatting (run stages together)
-bash master_pipeline.sh  # runs scripts 02–06
-
-# Fine-tuning
-sbatch scripts/submit_axolotl_model.sh mistral
-
-# Launch chatbot interactively, replace [MODEL NAME] with model option of choice (gemma, llama, mistral)
-conda activate llm-env
 srun -p batch --gres=gpu:1 --mem=64G -t 01:00:00 --pty bash
 python bot_test_resources/[MODEL NAME]_bot.py
 ```
@@ -225,11 +264,12 @@ python bot_test_resources/[MODEL NAME]_bot.py
 
 ## Environments
 
+If `00_pipeline_envs.sh` does not work or you are having issues with the environment, there are scripts to manually install the necessary libraries and versions found below.
+
 ### `wmbot-env` - Scraping & Processing
 Used for steps 1–4.
 ```bash
-bash scripts/00_create_scraping_env.sh
-# uses envs/wmbot-env_full.yaml 
+bash scripts/00_create_scraping_env.sh 
 ```
 Key packages: `trafilatura`, `beautifulsoup4`, `requests`, `pandas`, `numpy`
 
@@ -237,11 +277,10 @@ Key packages: `trafilatura`, `beautifulsoup4`, `requests`, `pandas`, `numpy`
 Used for steps 5–8.
 ```bash
 bash scripts/00_create_llm_env.sh
-# uses envs/llm-env_new.yaml
 ```
 Key packages: `axolotl`, `torch`, `transformers`, `peft`, `trl`, `accelerate`
 
-### `run-bot-env` - Inference & UI
+### `wmbot-env` - Inference & UI
 Used for step 9.
 ```bash
 bash scripts/00_create_run_bot_env.sh
@@ -249,7 +288,6 @@ bash scripts/00_create_run_bot_env.sh
 Key packages: `faiss`, `sentence-transformers`, `gradio`, `rank-bm25`, `peft`, `torch`
 
 ---
-
 ## Demo & Results
 
 ### Example Chatbot Outputs
@@ -318,9 +356,11 @@ Below is the gradio interface that can be run through the .ipynb
   publisher = {Association for Computational Linguistics},
   url = {https://aclanthology.org/2021.acl-demo.15}
 }
+```
 
 ### FAISS
 <a id="faiss"></a>
+```bibtex
 @article{johnson2019billion,
   title = {Billion-scale similarity search with GPUs},
   author = {Johnson, Jeff and Douze, Matthijs and Jégou, Hervé},
@@ -331,9 +371,11 @@ Below is the gradio interface that can be run through the .ipynb
   year = {2019},
   publisher = {IEEE}
 }
+```
 
 ### Rank-BM25
 <a id="rank-bm25"></a>
+```bibtex
 @software{rank_bm25,
   author = {Dorian Brown},
   title = {Rank-BM25: A Collection of BM25 Algorithms in Python},
@@ -342,9 +384,11 @@ Below is the gradio interface that can be run through the .ipynb
   doi = {10.5281/zenodo.4520057},
   url = {https://doi.org/10.5281/zenodo.4520057}
 }
+```
 
 ### Sentence-Transformers
 <a id="sentence-transformers"></a>
+```bibtex
 @inproceedings{reimers-2019-sentence-bert,
   title = {Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks},
   author = {Reimers, Nils and Gurevych, Iryna},
@@ -353,9 +397,11 @@ Below is the gradio interface that can be run through the .ipynb
   publisher = {Association for Computational Linguistics},
   url = {https://arxiv.org/abs/1908.10084}
 }
+```
 
 ### CrossEncoder
 <a id="crossencoder"></a>
+```bibtex
 @inproceedings{reimers-2019-sentence-bert,
   title = {Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks},
   author = {Reimers, Nils and Gurevych, Iryna},
@@ -364,9 +410,11 @@ Below is the gradio interface that can be run through the .ipynb
   publisher = {Association for Computational Linguistics},
   url = {https://arxiv.org/abs/1908.10084}
 }
+```
 
 ### Axolotl
 <a id="axolotl"></a>
+```bibtex
 @software{axolotl,
   title = {Axolotl: Open Source LLM Post-Training},
   author = {Axolotl maintainers and contributors},
@@ -374,9 +422,11 @@ Below is the gradio interface that can be run through the .ipynb
   url = {https://github.com/axolotl-ai-cloud/axolotl},
   license = {Apache-2.0}
 }
+```
 
 ### PyTorch
 <a id="pytorch"></a>
+```bibtex
 @inproceedings{ansel2024pytorch2,
   title = {PyTorch 2: Faster Machine Learning Through Dynamic Python Bytecode Transformation and Graph Compilation},
   author = {Ansel, Jason and Yang, Edward and He, Horace and others},
@@ -386,27 +436,33 @@ Below is the gradio interface that can be run through the .ipynb
   doi = {10.1145/3620665.3640366},
   url = {https://docs.pytorch.org/assets/pytorch2-2.pdf}
 }
+```
 
 ### PEFT
 <a id="peft"></a>
+```bibtex
 @misc{peft,
   title = {PEFT: Parameter-Efficient Fine-Tuning methods},
   author = {Mangrulkar, Sourab and Gugger, Sylvain and others},
   year = {2022},
   howpublished = {\url{https://github.com/huggingface/peft}}
 }
+```
 
 ### BeautifulSoup4
 <a id="beautifulsoup4"></a>
+```bibtex
 @article{richardson2007beautiful,
   title = {Beautiful Soup Documentation},
   author = {Richardson, Leonard},
   journal = {April},
   year = {2007}
 }
+```
 
 ### Gradio
 <a id="gradio"></a>
+```bibtex
 @article{abid2019gradio,
   title = {Gradio: Hassle-free sharing and testing of ML models in the wild},
   author = {Abid, Abubakar and Abdalla, Ali and Abid, Ali and others},
@@ -414,4 +470,4 @@ Below is the gradio interface that can be run through the .ipynb
   doi = {10.48550/arXiv.1906.02569},
   url = {https://arxiv.org/abs/1906.02569}
 }
-
+```

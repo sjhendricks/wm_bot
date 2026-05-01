@@ -17,9 +17,9 @@ conda activate llm-env
 
 export HF_TOKEN="YOUR HUGGING FACE TOKEN"
 
-python /sciclone/scr10/gzdata440/wm_bot/scripts/07_fine_tuning.py
+python ./scripts/07_fine_tuning.py
 conda deactivate
 conda activate wmbot-env
 
-python /sciclone/scr10/gzdata440/wm_bot/scripts/08_conversation_format.py
+python ./scripts/08_conversation_format.py
 conda deactivate

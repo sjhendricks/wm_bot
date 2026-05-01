@@ -16,7 +16,7 @@ conda activate wmbot-env
 
 echo "🔹 Step 0: Formatting Scraped Files"
 # Point to the parent directory where all your raw folders live
-for dir_path in /sciclone/scr10/gzdata440/wm_bot/data/raw/*; do
+for dir_path in ./data/raw/*; do
     
     # Check if it's actually a directory (skips random files)
     if [ -d "$dir_path" ]; then
@@ -26,22 +26,22 @@ for dir_path in /sciclone/scr10/gzdata440/wm_bot/data/raw/*; do
         
         echo "Processing folder: $data"
 
-        python /sciclone/scr10/gzdata440/wm_bot/scripts/02_format_files.py
+        python ./scripts/02_format_files.py
         
     fi
 done
 
 echo "🔹 Step 1: Cleaning"
-python /sciclone/scr10/gzdata440/wm_bot/scripts/03_clean.py
+python ./scripts/03_clean.py
 
 echo "🔹 Step 2: Chunking"
-python /sciclone/scr10/gzdata440/wm_bot/scripts/04_chunk.py
+python ./scripts/04_chunk.py
 
 echo "🔹 Step 3: Embedding + FAISS"
-python /sciclone/scr10/gzdata440/wm_bot/scripts/05_embed_faiss.py
+python ./scripts/05_embed_faiss.py
 
 echo "🔹 Building BM25..."
-python /sciclone/scr10/gzdata440/wm_bot/scripts/06_build_bm25.py
+python ./scripts/06_build_bm25.py
 
 echo "✅ Pipeline Complete!"
 
