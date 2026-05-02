@@ -2,8 +2,8 @@ import json
 import pickle
 from rank_bm25 import BM25Okapi
 
-INPUT_FILE = "/sciclone/scr10/gzdata440/wm_bot/data/chunks.json"
-OUTPUT_FILE = "/sciclone/scr10/gzdata440/wm_bot/data/bm25.pkl"
+INPUT_FILE = "./data/chunks.json"
+OUTPUT_FILE = "./data/bm25.pkl"
 
 with open(INPUT_FILE, "r") as f:
     chunks = json.load(f)

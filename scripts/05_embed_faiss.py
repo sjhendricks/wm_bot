@@ -4,9 +4,9 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 import pickle
 
-INPUT_FILE = "/sciclone/scr10/gzdata440/wm_bot/data/chunks.json"
-INDEX_FILE = "/sciclone/scr10/gzdata440/wm_bot/data/faiss.index"
-CHUNKS_FILE = "/sciclone/scr10/gzdata440/wm_bot/data/chunks.pkl"
+INPUT_FILE = "./data/rag/chunks.json"
+INDEX_FILE = "./data/rag/faiss.index"
+CHUNKS_FILE = "./data/rag/chunks.pkl"
 
 # Load chunks
 with open(INPUT_FILE, "r") as f:

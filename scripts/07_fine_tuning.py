@@ -13,9 +13,8 @@ os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
 # --- CONFIGURATION ---
 MODEL_ID = "meta-llama/Meta-Llama-3-8B-Instruct"
-BASE_PATH = "/sciclone/scr10/gzdata440/wm_bot"
-INPUT_FILE = os.path.join(BASE_PATH, "data/chunks.json")
-OUTPUT_FILE = os.path.join(BASE_PATH, "data/fine_tuning/fine_tuning_data.jsonl")
+INPUT_FILE = "./data/chunks.json"
+OUTPUT_FILE = "./data/fine_tuning/fine_tuning_data.jsonl"
 
 # Target counts
 POS_COUNT = 2550  

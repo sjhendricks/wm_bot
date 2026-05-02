@@ -13,7 +13,7 @@ folder = os.environ.get('folder', 'default')
 # --- NECESSARY CHANGE: Update seed URL to the Catalog ---
 START_URL = start
 DOMAIN = domain
-OUTPUT_DIR = f"data/raw/{folder}"
+OUTPUT_DIR = f"./data/raw/{folder}"
 
 if not os.path.exists(OUTPUT_DIR):
     os.makedirs(OUTPUT_DIR)

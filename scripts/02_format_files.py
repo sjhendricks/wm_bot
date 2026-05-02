@@ -3,7 +3,7 @@ import json
 import os
 data = os.environ.get('data', 'default')
 
-def process_txt_to_catalog_json(input_folder, output_file=f"data/clean/{data}_cleaned.json"):
+def process_txt_to_catalog_json(input_folder, output_file=f"./data/clean/{data}_cleaned.json"):
     """
     Refines raw TXT files into a clean JSON list with 'text' and 'page_title'.
     This format is optimized for both RAG embeddings and Synthetic Fine-Tuning.
@@ -78,6 +78,6 @@ def process_txt_to_catalog_json(input_folder, output_file=f"data/clean/{data}_cl
 
 if __name__ == "__main__":
     # Update these paths for your Sciclone setup
-    INPUT_DIR = f"data/raw/{data}"
-    OUTPUT_JSON = f"data/clean/{data}_cleaned.json"
+    INPUT_DIR = f"./data/raw/{data}"
+    OUTPUT_JSON = f"./data/clean/{data}_cleaned.json"
     process_txt_to_catalog_json(INPUT_DIR, OUTPUT_JSON)

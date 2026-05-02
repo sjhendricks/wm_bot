@@ -18,23 +18,22 @@ module load miniforge3
 source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate wmbot-env
 
+
 INPUT_FILE="./metadata/metadata.csv"
+
 
 # Check if the file exists before starting
 if [ ! -f "$INPUT_FILE" ]; then
-    echo "Error: File not found."
-    exit 1
+   echo "Error: File not found."
+   exit 1
 fi
- # Just to ensure the file system is ready (optional)
-echo "Starting scraping process with file: $INPUT_FILE" 
-sleep 5
-tail -n +2 "data.csv" | while IFS=',' read -r var1 var2 var3
+# Just to ensure the file system is ready (optional)
+while IFS=',' read -r var1 var2 var3
 do
-    # Check if var1 (the URL) is actually present
-    if [ -n "$var1" ]; then
-        echo "Processing: $var1"
-        ./your_scraper_script.sh "$var1" "$var2" "$var3"
-    fi
+   # Check if var1 (the URL) is actually present
+   if [ -n "$var1" ]; then
+       echo "Processing: $var1"
+       python ./scripts/01_scraping.py "$var1" "$var2" "./data/raw/${var3}"
+   fi
 done < "$INPUT_FILE"
-# python ./scripts/01_scraper.py
 conda deactivate

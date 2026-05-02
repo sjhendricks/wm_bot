@@ -4,8 +4,8 @@ import re
 from glob import glob
 
 # --- CONFIGURATION ---
-INPUT_FOLDER = "data/clean/"
-OUTPUT_FILE = "data/cleaned.json"
+INPUT_FOLDER = "./data/clean/"
+OUTPUT_FILE = "./data/cleaned.json"
 
 def clean_text(text):
     """

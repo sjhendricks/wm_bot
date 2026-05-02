@@ -77,9 +77,10 @@ wm_bot/
 
 | Script | Description | 
 |--------|-------------|
-| `00_create_scraping_env.sh` | creates environment for scraping and preparing data |
-| `00_create_llm_env.sh` | creates environment for training the llm using axolotl |
-| `00_create_run_bot_env.sh` | creates environment for running the bot using pytorch | 
+|`00_pipeline_envs.sh` | creates all needed envs using yaml files |
+| `00_create_scraping_env.sh` | manually creates environment for scraping and preparing data |
+| `00_create_llm_env.sh` | manually creates environment for training the llm using axolotl |
+| `00_create_run_bot_env.sh` | manually creates environment for running the bot using pytorch | 
 
 ### HPC (SLURM) Submit Scripts 
 
@@ -301,7 +302,18 @@ Key packages: `faiss`, `sentence-transformers`, `gradio`, `rank-bm25`, `peft`, `
 
 ### Evaluation 
 
-We tested the chatbot on...
+We evaluated the chatbot on retrieval quality, answer relevance, and overall system performance using representative William & Mary queries across academics, campus resources, dining, libraries, and administrative topics.
+
+#### Key Findings
+- The **hybrid retrieval pipeline** (FAISS + BM25 + CrossEncoder reranking) improved retrieval accuracy compared to using semantic or keyword search alone
+- **CrossEncoder reranking** improved precision by selecting the most relevant passages before generation
+- **QLoRA fine-tuning** improved response quality, domain specificity, and formatting for W&M-related questions
+- The chatbot successfully generated grounded responses for a wide range of campus-related queries through the Gradio interface
+#### Future Improvements
+- Add automated retrieval metrics such as Recall\@K and MRR
+- Expand the scraped dataset coverage
+- Conduct structured user testing and evaluation
+
 
 ### User Interface 
 
@@ -313,16 +325,19 @@ Below is the gradio interface that can be run through the .ipynb
 
 | Member | Contributions |
 |--------|---------------|
-| [Name 1] | Web scraping pipeline, seed URL curation, data organization across 14 site categories, project restructuring, multi-model selection feature, README documentation |
-| [Name 2] | Retrieval system - FAISS, BM25, CrossEncoder reranking |
-| [Name 3] | Fine-tuning - QLoRA/Axolotl training, conversation formatting |
-| [Name 4] | Gradio UI, app integration, testing |
+| Pranjali Gupta | Scraping scripts, Embeddings, FAISS Index and BM25 implementation|
+| Sarah Hendricks| Conda/environments setup, base Axolotl implementation, README.md work |
+| Paulina Skurzak | |
+| Hannah Sweazey | |
 
 ---
 
 ## Known Limitations
 - Scraping is scoped to selected W&M sites; not a full site crawl
-- Benchmarking is currently manual
+- Conda environment and package versions are highly specific
+- Missing or incomplete scraped data occasionally produced vague or generic responses
+- Ambiguous queries reduced retrieval quality and answer precision
+- Benchmarking and automated evaluation metrics are still under development
 
 ---
 
