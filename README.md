@@ -22,6 +22,7 @@ wm_bot/
 ├── scripts/                    # Pipeline scripts
 ├── envs/
 │   ├── archive/
+│   ├── requirements-wmbot.txt
 │   ├── wmbot-env_full.yaml
 │   ├── wmbot-stable.yaml
 │   └── llm-env_new.yaml
@@ -335,7 +336,7 @@ Below is the gradio interface that can be run through the .ipynb
 
 ## Known Limitations
 - Scraping is scoped to selected W&M sites; not a full site crawl
-- Conda environment and package versions are highly specific
+- Conda environment and package versions are highly specific. We have provided a few methods for setting up environments, and package versions are listed in the yaml/txt files in the envs folder
 - Missing or incomplete scraped data occasionally produced vague or generic responses
 - Ambiguous queries reduced retrieval quality and answer precision
 - Benchmarking and automated evaluation metrics are still under development
