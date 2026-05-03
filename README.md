@@ -45,6 +45,7 @@ wm_bot/
 │       ├── axolotl_mini.yaml
 │       ├── mistral_prepared/
 │       └── qlora-out/
+├── 00_pipeline_envs.sh
 ├── 00_pipeline_scraping.sh/ 
 ├── 01_pipeline_cleaning.sh/ 
 ├── 02_pipeline_tuning.sh/ 
