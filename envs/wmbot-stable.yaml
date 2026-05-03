@@ -89,4 +89,3 @@ dependencies:
       - triton==3.1.0
       - typer==0.24.2
       - typing-extensions==4.15.0
-prefix: /sciclone/home/hrsweazey/.conda/envs/wmbot-stable

@@ -51,4 +51,3 @@ dependencies:
   - tzdata=2025c
   - urllib3=2.6.3
   - zstd=1.5.7
-prefix: /sciclone/home/sjhendricks/.conda/envs/wmbot-env
