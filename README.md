@@ -329,7 +329,7 @@ Below is the gradio interface that can be run through the .ipynb
 |--------|---------------|
 | Pranjali Gupta | Scraping scripts, Embeddings, FAISS Index and BM25 implementation|
 | Sarah Hendricks| Conda/environments setup, base Axolotl implementation, README.md work |
-| Paulina Skurzak | |
+| Paulina Skurzak | README documentation, model research, directory organization, web scraping |
 | Hannah Sweazey | Data cleaning, model fine-tuning, Axolotl training, pipeline scripts, backend UI, frontend UI, README.md work|
 
 ---
